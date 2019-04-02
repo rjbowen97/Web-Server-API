@@ -12,8 +12,10 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.3.11",
     "morgan": "^1.9.1",
+    "prompt": "^1.0.0",
     "rimraf": "^2.6.2",
     "targz": "^1.0.1",
+    "tunnel-ssh": "^4.1.4",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {},
