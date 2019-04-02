@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="1258" version="2018081117">
+  <modulename>vpl</modulename>
+  <sectionid>337</sectionid>
+  <sectionnumber>14</sectionnumber>
+  <idnumber>1258</idnumber>
+  <added>1532706875</added>
+  <score>0</score>
+  <indent>0</indent>
+  <visible>0</visible>
+  <visibleold>1</visibleold>
+  <groupmode>0</groupmode>
+  <groupingid>0</groupingid>
+  <completion>0</completion>
+  <completiongradeitemnumber>$@NULL@$</completiongradeitemnumber>
+  <completionview>0</completionview>
+  <completionexpected>0</completionexpected>
+  <availability>$@NULL@$</availability>
+  <showdescription>0</showdescription>
+  <tags>
+    <tag id="245">
+      <name>es unit: iteration</name>
+      <rawname>ES Unit: iteration</rawname>
+    </tag>
+    <tag id="249">
+      <name>es language: python</name>
+      <rawname>ES language: Python</rawname>
+    </tag>
+    <tag id="251">
+      <name>es cognitive level: application</name>
+      <rawname>ES cognitive level: application</rawname>
+    </tag>
+    <tag id="253">
+      <name>es difficulty: moderate</name>
+      <rawname>ES difficulty: moderate</rawname>
+    </tag>
+    <tag id="256">
+      <name>es slo: create new code using a while loop whose c</name>
+      <rawname>ES SLO: create new code using a while loop whose c</rawname>
+    </tag>
+    <tag id="257">
+      <name>es slo: create a boolean function</name>
+      <rawname>ES SLO: create a boolean function</rawname>
+    </tag>
+  </tags>
+</module>

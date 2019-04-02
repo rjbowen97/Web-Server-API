@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="335" moduleid="1259" modulename="vpl" contextid="23138">
+  <vpl id="335">
+    <name>sign function</name>
+    <shortdescription></shortdescription>
+    <intro>&lt;b&gt;sign function&lt;br&gt;&lt;/b&gt;&lt;div style=""&gt;&lt;div&gt;&lt;div&gt;&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Define a
+function&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span&gt; &lt;code&gt;sign&lt;/code&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt; that consumes one parameter of a &lt;b&gt;&lt;i&gt;numeric type&lt;/i&gt;&lt;/b&gt;. This function should return &lt;b&gt;&lt;i&gt;-1&lt;/i&gt;&lt;/b&gt; if the
+argument is negative, &lt;b&gt;&lt;i&gt;1&lt;/i&gt;&lt;/b&gt; if the argument is positive, and &lt;b&gt;&lt;i&gt;0&lt;/i&gt;&lt;/b&gt; if the argument is
+exactly 0.&amp;nbsp; &lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: You may assume all arguments passed to this function will be numeric.&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;table cellpadding="0" border="0"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;pre&gt;&lt;b&gt;Test&lt;/b&gt;&lt;/pre&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+   &lt;pre&gt;&lt;b&gt;Result&lt;/b&gt;&lt;/pre&gt;
+   &lt;/td&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;&lt;tr&gt;
+  &lt;td&gt;
+  &lt;pre&gt;print(sign(-2.2))&lt;/pre&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;pre&gt;-1&lt;/pre&gt;
+  &lt;/td&gt;
+ &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div id="intro"&gt;&lt;div&gt;&lt;span&gt;&lt;span style=""&gt;&lt;div style=""&gt;&lt;div id="intro" style=""&gt;&lt;div style=""&gt;&lt;span style=""&gt;&lt;span style=""&gt;&lt;div style=""&gt;&lt;div id="intro" style=""&gt;&lt;div style=""&gt;&lt;span style=""&gt;&lt;span style=""&gt;&lt;div style=""&gt;&lt;div id="intro" style=""&gt;&lt;div style=""&gt;&lt;span style=""&gt;&lt;span style=""&gt;&lt;div style=""&gt;&lt;div id="intro" style=""&gt;&lt;div style=""&gt;&lt;span style=""&gt;&lt;span style=""&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <startdate>0</startdate>
+    <duedate>1553144100</duedate>
+    <maxfiles>1</maxfiles>
+    <maxfilesize>0</maxfilesize>
+    <requirednet></requirednet>
+    <password></password>
+    <grade>3</grade>
+    <visiblegrade>0</visiblegrade>
+    <usevariations>0</usevariations>
+    <variationtitle>$@NULL@$</variationtitle>
+    <basedon>0</basedon>
+    <basedonname>$@NULL@$</basedonname>
+    <run>1</run>
+    <debug>0</debug>
+    <evaluate>1</evaluate>
+    <evaluateonsubmission>0</evaluateonsubmission>
+    <automaticgrading>1</automaticgrading>
+    <maxexetime>$@NULL@$</maxexetime>
+    <restrictededitor>1</restrictededitor>
+    <example>0</example>
+    <maxexememory>$@NULL@$</maxexememory>
+    <maxexefilesize>$@NULL@$</maxexefilesize>
+    <maxexeprocesses>$@NULL@$</maxexeprocesses>
+    <jailservers>$@NULL@$</jailservers>
+    <emailteachers>0</emailteachers>
+    <worktype>0</worktype>
+    <timemodified>1551208123</timemodified>
+    <freeevaluations>0</freeevaluations>
+    <reductionbyevaluation>0</reductionbyevaluation>
+    <sebrequired>0</sebrequired>
+    <sebkeys></sebkeys>
+    <runscript></runscript>
+    <debugscript></debugscript>
+    <required_files>
+      <required_file id="">
+        <name>required_files.lst</name>
+        <content>sign.py</content>
+        <encoding>0</encoding>
+      </required_file>
+      <required_file id="">
+        <name>required_files/sign.py</name>
+        <content># ----------------------------------------------
+from customIO import *
+# DO NOT CHANGE THE CODE ABOVE THIS LINE
+
+# ----------------------------------------------
+# Student Name: 
+# Lab Section Number: 
+# ----------------------------------------------
+
+
+# Write your solution here
+
+
+
+</content>
+        <encoding>0</encoding>
+      </required_file>
+    </required_files>
+    <execution_files>
+      <execution_file id="">
+        <name>execution_files.lst</name>
+        <content>vpl_run.sh
+vpl_debug.sh
+vpl_evaluate.sh
+vpl_evaluate.cases
+eval_sign.py
+customIO.py</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files.lst.keep</name>
+        <content>vpl_run.sh
+vpl_debug.sh
+vpl_evaluate.sh
+vpl_evaluate.cases
+eval_sign.py
+customIO.py</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/customIO.py</name>
+        <content>import builtins
+import sys, select
+
+output = []
+inputs = []
+time_delay = 60
+input_buffer = []
+# print function accepts multiple arguments
+def print(*strings):
+    global output
+    concat_string = str(strings[0])
+    # concatenate the arguments before printing and appending to output list
+    for each_string in strings[1:]:
+        # if the value is a string type and starts with an escape sequence 
+        # don't concatenate a space
+        if(type(each_string) == str and each_string[0] in ['\n','\t']):            
+            concat_string += str(each_string)
+        # otherwise add a space
+        else:
+            concat_string += " " + str(each_string)
+    # print the concatenated string
+    builtins.print(concat_string)
+    # add the concatenated string to the output list
+    output.append(concat_string)
+    
+def set_input(string):
+    return string
+    
+def input(string):
+    builtins.print(string)
+    
+    #change the delay i.e. 10 to allow students ample
+    #time to input and 1 when evaluating to
+    #make grading faster
+    #the fourth parameter is time in seconds
+    i, o, e = select.select( [sys.stdin], [], [], time_delay )
+
+    if (i):
+        return(sys.stdin.readline().strip())
+    else:
+        if input_buffer != []:
+            return input_buffer.pop(0)
+        else:
+            return ''
+        </content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_debug.sh</name>
+        <content></content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_evaluate.cases</name>
+        <content></content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_evaluate.sh</name>
+        <content>#! /bin/bash
+# vpl_evaluate.sh
+echo "#! /bin/bash" &gt; vpl_execution
+echo "python3 eval_sign.py"&gt;&gt; vpl_execution
+chmod +x vpl_execution</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_run.sh</name>
+        <content>#!/bin/bash
+echo "#!/bin/bash" &gt; vpl_execution
+if [ -f ./vpl_evaluate.sh ] ; then
+      echo "python3 eval_sign.py" &gt;&gt; vpl_execution
+else
+      echo "python3 sign.py" &gt;&gt; vpl_execution
+fi
+chmod +x vpl_execution</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/eval_sign.py</name>
+        <content>import sys
+import customIO
+
+customIO.time_delay = 1
+
+
+
+""" Skeleton for eval tests:::
+
+# test for problem X - DESCRIPTION
+try:
+    
+except:
+    
+    
+"""
+
+
+def comment(s):
+    '''formats strings to create VPL comments'''
+    print('Comment :=&gt;&gt; ' + s)
+
+
+def grade(num):
+    '''formats a number to create a VPL grade'''
+    print('Grade :=&gt;&gt; ' + str(num))
+
+
+try:
+    import sign
+except Exception as e:
+    comment("Unable to import lab file  " + str(e))
+    grade(0)
+    exit()
+
+test_grade = 0
+
+
+
+try:
+    
+    assert sign.sign(-4.7) == -1, "Incorrect - sign is not returning the correct value for negative input"
+    test_grade += 1
+    assert sign.sign(40.5) == 1, "Incorrect - sign is not returning the correct value for positive input"
+    test_grade += 1
+    assert sign.sign(0) == 0, "Incorrect - sign is not returning the correct value for input value of 0"
+    test_grade += 1
+    comment("Correct")
+    
+except AttributeError:
+	comment("missing or misnamed function")  
+except Exception as e :
+    comment(str(e))
+
+
+    
+
+
+grade(test_grade)</content>
+        <encoding>0</encoding>
+      </execution_file>
+    </execution_files>
+    <variations>
+    </variations>
+    <submissions>
+    </submissions>
+  </vpl>
+</activity>

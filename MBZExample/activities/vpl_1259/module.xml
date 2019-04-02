@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="1259" version="2018081117">
+  <modulename>vpl</modulename>
+  <sectionid>337</sectionid>
+  <sectionnumber>14</sectionnumber>
+  <idnumber>1259</idnumber>
+  <added>1532706875</added>
+  <score>0</score>
+  <indent>0</indent>
+  <visible>0</visible>
+  <visibleold>1</visibleold>
+  <groupmode>0</groupmode>
+  <groupingid>0</groupingid>
+  <completion>0</completion>
+  <completiongradeitemnumber>$@NULL@$</completiongradeitemnumber>
+  <completionview>0</completionview>
+  <completionexpected>0</completionexpected>
+  <availability>$@NULL@$</availability>
+  <showdescription>0</showdescription>
+  <tags>
+    <tag id="247">
+      <name>es difficulty: easy</name>
+      <rawname>ES difficulty: easy</rawname>
+    </tag>
+    <tag id="249">
+      <name>es language: python</name>
+      <rawname>ES language: Python</rawname>
+    </tag>
+    <tag id="251">
+      <name>es cognitive level: application</name>
+      <rawname>ES cognitive level: application</rawname>
+    </tag>
+    <tag id="254">
+      <name>es unit: selection</name>
+      <rawname>ES Unit: selection</rawname>
+    </tag>
+    <tag id="258">
+      <name>es slo: create a function that requires branching</name>
+      <rawname>ES SLO: create a function that requires branching</rawname>
+    </tag>
+  </tags>
+</module>

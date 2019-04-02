@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file id="35522">
+    <contenthash>145c16a54fa21460115862d0c7f2d72821c11003</contenthash>
+    <contextid>23137</contextid>
+    <component>mod_vpl</component>
+    <filearea>intro</filearea>
+    <itemid>0</itemid>
+    <filepath>/</filepath>
+    <filename>Design Recipe F18.pdf</filename>
+    <userid>912</userid>
+    <filesize>131447</filesize>
+    <mimetype>application/pdf</mimetype>
+    <status>0</status>
+    <timecreated>1536696258</timecreated>
+    <timemodified>1551197917</timemodified>
+    <source>Server files: CISC106/CISC106-18F-Wassil/Lab 2 -&amp;nbsp; Calling, Defining and Testing Functi... (Label)/Description/Design Recipe F18.pdf</source>
+    <author>Katie Wassil</author>
+    <license>allrightsreserved</license>
+    <sortorder>0</sortorder>
+    <repositorytype>$@NULL@$</repositorytype>
+    <repositoryid>$@NULL@$</repositoryid>
+    <reference>$@NULL@$</reference>
+  </file>
+  <file id="35523">
+    <contenthash>da39a3ee5e6b4b0d3255bfef95601890afd80709</contenthash>
+    <contextid>23137</contextid>
+    <component>mod_vpl</component>
+    <filearea>intro</filearea>
+    <itemid>0</itemid>
+    <filepath>/</filepath>
+    <filename>.</filename>
+    <userid>912</userid>
+    <filesize>0</filesize>
+    <mimetype>document/unknown</mimetype>
+    <status>0</status>
+    <timecreated>1551200027</timecreated>
+    <timemodified>1551201300</timemodified>
+    <source>$@NULL@$</source>
+    <author>$@NULL@$</author>
+    <license>$@NULL@$</license>
+    <sortorder>0</sortorder>
+    <repositorytype>$@NULL@$</repositorytype>
+    <repositoryid>$@NULL@$</repositoryid>
+    <reference>$@NULL@$</reference>
+  </file>
+  <file id="35537">
+    <contenthash>da39a3ee5e6b4b0d3255bfef95601890afd80709</contenthash>
+    <contextid>23138</contextid>
+    <component>mod_vpl</component>
+    <filearea>intro</filearea>
+    <itemid>0</itemid>
+    <filepath>/</filepath>
+    <filename>.</filename>
+    <userid>912</userid>
+    <filesize>0</filesize>
+    <mimetype>document/unknown</mimetype>
+    <status>0</status>
+    <timecreated>1551201503</timecreated>
+    <timemodified>1551208794</timemodified>
+    <source>$@NULL@$</source>
+    <author>$@NULL@$</author>
+    <license>$@NULL@$</license>
+    <sortorder>0</sortorder>
+    <repositorytype>$@NULL@$</repositorytype>
+    <repositoryid>$@NULL@$</repositoryid>
+    <reference>$@NULL@$</reference>
+  </file>
+  <file id="35550">
+    <contenthash>145c16a54fa21460115862d0c7f2d72821c11003</contenthash>
+    <contextid>23138</contextid>
+    <component>mod_vpl</component>
+    <filearea>intro</filearea>
+    <itemid>0</itemid>
+    <filepath>/</filepath>
+    <filename>Design Recipe F18.pdf</filename>
+    <userid>912</userid>
+    <filesize>131447</filesize>
+    <mimetype>application/pdf</mimetype>
+    <status>0</status>
+    <timecreated>1536696258</timecreated>
+    <timemodified>1551208467</timemodified>
+    <source>Server files: CISC106/CISC106-18F-Wassil/Lab 2 -&amp;nbsp; Calling, Defining and Testing Functi... (Label)/Description/Design Recipe F18.pdf</source>
+    <author>Katie Wassil</author>
+    <license>allrightsreserved</license>
+    <sortorder>0</sortorder>
+    <repositorytype>$@NULL@$</repositorytype>
+    <repositoryid>$@NULL@$</repositoryid>
+    <reference>$@NULL@$</reference>
+  </file>
+</files>

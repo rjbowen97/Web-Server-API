@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="264" moduleid="1128" modulename="vpl" contextid="20810">
+  <vpl id="264">
+    <name>yes_or_no function</name>
+    <shortdescription></shortdescription>
+    <intro>&lt;div style=""&gt;&lt;div&gt;&lt;div&gt;&lt;div id="intro"&gt;&lt;b&gt;&lt;h5&gt;&lt;b&gt;IMPORTANT:&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/h5&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;h5&gt;After
+ you have defined your function:&lt;/h5&gt;&lt;ul&gt;&lt;li&gt;&lt;h5&gt;call your function and use the rocket icon to run your code&lt;/h5&gt;&lt;/li&gt;&lt;li&gt;&lt;h5&gt;before evaluating with the checkmark icon you MUST either comment out or remove your call to your function&lt;/h5&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;-------------------------------------------------------------------------&lt;/p&gt;
+
+&lt;p&gt;yes_or_no function&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;/b&gt;&lt;p&gt;Define a function named &lt;b&gt;&lt;span&gt;&lt;code&gt;yes_or_no&lt;/code&gt;&lt;/span&gt;&lt;/b&gt;&lt;span style="font-size: 12px; white-space: nowrap; background-color: rgb(247, 247, 249);"&gt;&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;/span&gt;which consumes no parameters. When called, it gets 
+input from the user until the user types either &lt;i&gt;&lt;b&gt;'yes'&lt;/b&gt;&lt;/i&gt; or&lt;b&gt;&lt;i&gt; 'no',&lt;/i&gt;&lt;/b&gt; at which 
+point the function should return &lt;b&gt;&lt;i&gt;True &lt;/i&gt;&lt;/b&gt;if the user typed 'yes' and &lt;b&gt;&lt;i&gt;False &lt;/i&gt;&lt;/b&gt;if the user typed 'no'. Any other entries by the user are ignored and another value must be input.&lt;br&gt;&lt;/p&gt;For example:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&amp;nbsp;
+
+&lt;b&gt;&lt;table cellpadding="0" border="0"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;td&gt;
+   &lt;pre&gt;&lt;span style=""&gt;Test&lt;/span&gt;&lt;/pre&gt;
+   &lt;/td&gt;
+   &lt;td&gt;
+   &lt;pre&gt;&lt;span style=""&gt;Input&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=""&gt;&amp;nbsp;&lt;span style="font-size: 13px; white-space: pre-wrap; background-color: rgb(245, 245, 245);"&gt;Result&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;pre&gt;&lt;span&gt;print(yes_or_no())&lt;/span&gt;&lt;/pre&gt;
+  &lt;/td&gt;
+  &lt;td&gt;
+  &lt;pre&gt;&lt;span style="font-weight: normal;"&gt;hello&lt;br&gt;blank&lt;br&gt;no&lt;/span&gt;&lt;/pre&gt;
+  &lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style="font-weight: normal;"&gt;&amp;nbsp;False&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+  &lt;td&gt;&lt;b&gt;&lt;pre&gt;&lt;span&gt;print(yes_or_no())&lt;/span&gt;&lt;/pre&gt;&lt;table cellpadding="0" border="0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/b&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;&lt;b&gt;&lt;pre&gt;2&lt;br&gt;not&lt;br&gt;not&lt;br&gt;blank&lt;br&gt;yes&lt;br&gt;&lt;/pre&gt;&lt;/b&gt;&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;&lt;b&gt;&lt;pre&gt;True&lt;/pre&gt;&lt;/b&gt;&lt;/b&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;/b&gt;&lt;b&gt;&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <startdate>1552539300</startdate>
+    <duedate>1553921700</duedate>
+    <maxfiles>1</maxfiles>
+    <maxfilesize>0</maxfilesize>
+    <requirednet></requirednet>
+    <password></password>
+    <grade>4</grade>
+    <visiblegrade>0</visiblegrade>
+    <usevariations>0</usevariations>
+    <variationtitle>$@NULL@$</variationtitle>
+    <basedon>0</basedon>
+    <basedonname>$@NULL@$</basedonname>
+    <run>1</run>
+    <debug>0</debug>
+    <evaluate>1</evaluate>
+    <evaluateonsubmission>0</evaluateonsubmission>
+    <automaticgrading>1</automaticgrading>
+    <maxexetime>$@NULL@$</maxexetime>
+    <restrictededitor>1</restrictededitor>
+    <example>0</example>
+    <maxexememory>$@NULL@$</maxexememory>
+    <maxexefilesize>$@NULL@$</maxexefilesize>
+    <maxexeprocesses>$@NULL@$</maxexeprocesses>
+    <jailservers>$@NULL@$</jailservers>
+    <emailteachers>0</emailteachers>
+    <worktype>0</worktype>
+    <timemodified>1551199987</timemodified>
+    <freeevaluations>0</freeevaluations>
+    <reductionbyevaluation>0</reductionbyevaluation>
+    <sebrequired>0</sebrequired>
+    <sebkeys></sebkeys>
+    <runscript></runscript>
+    <debugscript></debugscript>
+    <required_files>
+      <required_file id="">
+        <name>required_files.lst</name>
+        <content>yes_or_no.py</content>
+        <encoding>0</encoding>
+      </required_file>
+      <required_file id="">
+        <name>required_files/yes_or_no.py</name>
+        <content># ----------------------------------------------
+from customIO import *
+# DO NOT CHANGE THE CODE ABOVE THIS LINE
+
+# ----------------------------------------------
+# Student Name: 
+# Lab Section Number: 
+# ----------------------------------------------
+
+
+# Write your solution here
+
+
+
+
+
+</content>
+        <encoding>0</encoding>
+      </required_file>
+    </required_files>
+    <execution_files>
+      <execution_file id="">
+        <name>execution_files.lst</name>
+        <content>vpl_run.sh
+vpl_debug.sh
+vpl_evaluate.sh
+vpl_evaluate.cases
+eval_yes_or_no.py
+customIO.py</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files.lst.keep</name>
+        <content>vpl_run.sh
+vpl_debug.sh
+vpl_evaluate.sh
+vpl_evaluate.cases
+eval_yes_or_no.py
+customIO.py</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/eval_yes_or_no.py</name>
+        <content>import sys
+import customIO
+
+customIO.time_delay = 1
+
+
+""" Skeleton for eval tests:::
+
+# test for problem X - DESCRIPTION
+try:
+    
+except:
+    
+"""
+
+def comment(s):
+    '''formats strings to create VPL comments'''
+    print('Comment :=&gt;&gt; ' + s)
+
+
+def grade(num):
+    '''formats a number to create a VPL grade'''
+    print('Grade :=&gt;&gt; ' + str(num))
+
+
+try:
+    import yes_or_no
+except Exception as e:
+    comment("Unable to import lab file  " + str(e))
+    grade(0)
+    exit()
+
+test_grade = 0
+
+
+# test Problem 7
+
+try:
+    customIO.input_buffer.clear()
+    customIO.input_buffer.append('yes')
+    customIO.input_buffer.append('no')
+    assert yes_or_no.yes_or_no() == True, "Incorrect - yes_or_no does not return correct value when input is 'yes'"
+    test_grade += 1
+    
+    customIO.input_buffer.clear()
+    customIO.input_buffer.append('no')
+    customIO.input_buffer.append('yes')
+    assert yes_or_no.yes_or_no() == False, "Incorrect - yes_or_no does not return correct value when input is 'no'"
+    
+    test_grade += 1
+    customIO.input_buffer.clear()
+    customIO.input_buffer.append('n')
+    customIO.input_buffer.append('y')
+    customIO.input_buffer.append('345')
+    customIO.input_buffer.append('yes')
+     customIO.input_buffer.append('no')
+    assert yes_or_no.yes_or_no() == True, "Incorrect - yes_or_no looping may be incorrect'"
+    test_grade += 1.0
+    
+    customIO.input_buffer.clear()
+    customIO.input_buffer.append('')
+    customIO.input_buffer.append('yes')
+    assert yes_or_no.yes_or_no() == True, "Incorrect - yes_or_no does not handle blank input correctly'"
+    test_grade += 1.0
+ 
+    comment("Correct")
+
+except AttributeError:
+	comment("missing or misnamed function") 
+except Exception as e :
+    comment(str(e))
+
+
+
+grade(test_grade)
+</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_debug.sh</name>
+        <content></content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_run.sh</name>
+        <content>#!/bin/bash
+echo "#!/bin/bash" &gt; vpl_execution
+if [ -f ./vpl_evaluate.sh ] ; then
+      echo "python3 eval_yes_or_no.py" &gt;&gt; vpl_execution
+else
+      echo "python3 yes_or_no.py" &gt;&gt; vpl_execution
+fi
+chmod +x vpl_execution</content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/customIO.py</name>
+        <content>import builtins
+import sys, select
+
+output = []
+inputs = []
+time_delay = 60
+input_buffer = []
+# print function accepts multiple arguments
+def print(*strings):
+    global output
+    concat_string = str(strings[0])
+    # concatenate the arguments before printing and appending to output list
+    for each_string in strings[1:]:
+        # if the value is a string type and starts with an escape sequence 
+        # don't concatenate a space
+        if(type(each_string) == str and each_string[0] in ['\n','\t']):            
+            concat_string += str(each_string)
+        # otherwise add a space
+        else:
+            concat_string += " " + str(each_string)
+    # print the concatenated string
+    builtins.print(concat_string)
+    # add the concatenated string to the output list
+    output.append(concat_string)
+    
+def set_input(string):
+    return string
+    
+def input(string):
+    builtins.print(string)
+    
+    #change the delay i.e. 10 to allow students ample
+    #time to input and 1 when evaluating to
+    #make grading faster
+    #the fourth parameter is time in seconds
+    i, o, e = select.select( [sys.stdin], [], [], time_delay )
+
+    if (i):
+        return(sys.stdin.readline().strip())
+    else:
+        if input_buffer != []:
+            return input_buffer.pop(0)
+        else:
+            return ''
+        </content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_evaluate.cases</name>
+        <content></content>
+        <encoding>0</encoding>
+      </execution_file>
+      <execution_file id="">
+        <name>execution_files/vpl_evaluate.sh</name>
+        <content>#! /bin/bash
+# vpl_evaluate.sh
+echo "#! /bin/bash" &gt; vpl_execution
+echo "python3 eval_yes_or_no.py"&gt;&gt; vpl_execution
+chmod +x vpl_execution</content>
+        <encoding>0</encoding>
+      </execution_file>
+    </execution_files>
+    <variations>
+    </variations>
+    <submissions>
+    </submissions>
+  </vpl>
+</activity>

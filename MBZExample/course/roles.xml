@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roles>
+  <role_overrides>
+    <override id="2133">
+      <roleid>4</roleid>
+      <capability>mod/assign:submit</capability>
+      <permission>1</permission>
+      <timemodified>1549478638</timemodified>
+      <modifierid>13</modifierid>
+    </override>
+    <override id="2134">
+      <roleid>4</roleid>
+      <capability>mod/vpl:submit</capability>
+      <permission>1</permission>
+      <timemodified>1549478638</timemodified>
+      <modifierid>13</modifierid>
+    </override>
+    <override id="2135">
+      <roleid>4</roleid>
+      <capability>mod/vpl:view</capability>
+      <permission>1</permission>
+      <timemodified>1549478638</timemodified>
+      <modifierid>13</modifierid>
+    </override>
+    <override id="2136">
+      <roleid>1</roleid>
+      <capability>mod/vpl:manage</capability>
+      <permission>1</permission>
+      <timemodified>1549478638</timemodified>
+      <modifierid>13</modifierid>
+    </override>
+  </role_overrides>
+  <role_assignments>
+  </role_assignments>
+</roles>

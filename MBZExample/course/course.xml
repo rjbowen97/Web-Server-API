@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course id="43" contextid="20790">
+  <shortname>Wassil19S106</shortname>
+  <fullname>CISC106-19S-Wassil</fullname>
+  <idnumber></idnumber>
+  <summary></summary>
+  <summaryformat>1</summaryformat>
+  <format>flexsections</format>
+  <showgrades>1</showgrades>
+  <newsitems>5</newsitems>
+  <startdate>1549774800</startdate>
+  <enddate>1581397200</enddate>
+  <marker>0</marker>
+  <maxbytes>0</maxbytes>
+  <legacyfiles>0</legacyfiles>
+  <showreports>0</showreports>
+  <visible>1</visible>
+  <groupmode>0</groupmode>
+  <groupmodeforce>0</groupmodeforce>
+  <defaultgroupingid>0</defaultgroupingid>
+  <lang></lang>
+  <theme></theme>
+  <timecreated>1535327679</timecreated>
+  <timemodified>1549765187</timemodified>
+  <requested>0</requested>
+  <enablecompletion>0</enablecompletion>
+  <completionnotify>0</completionnotify>
+  <category id="18">
+    <name>2019 Spring</name>
+    <description></description>
+  </category>
+  <tags>
+  </tags>
+</course>
