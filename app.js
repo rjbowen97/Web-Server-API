@@ -18,14 +18,14 @@ var cors = require('cors');
 var sshCredentialPromptConfiguration = {
   properties: {
     sshUsername: {
-      description: 'Enter ssh username (EECIS username)',     // Prompt displayed to the user. If not supplied name will be used.
-      type: 'string',                 // Specify the type of input to expect.
-      required: true,                  // If true, value entered must be non-empty.      
+      description: 'Enter ssh username (EECIS username)',
+      type: 'string',
+      required: true,
     },
     sshPassword: {
-      description: 'Enter ssh password (EECIS password)',     // Prompt displayed to the user. If not supplied name will be used.
-      type: 'string',                 // Specify the type of input to expect.
-      required: true,                  // If true, value entered must be non-empty.
+      description: 'Enter ssh password (EECIS password)',
+      type: 'string',
+      required: true,
       hidden: true
     }
   }
