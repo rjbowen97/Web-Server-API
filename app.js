@@ -57,15 +57,18 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
 
       // Pull data in the MongoDB to a single JSON file named "thing.json"
       var cursor = db.collection('questionsUsingXml2js').find();
+      var cc=0
       cursor.forEach(function (items) {
         var data = items;
-        fs.appendFile('thing.json', JSON.stringify(data), (err) => {
+        cc++;
+        var cc2=cc.toString();
+        fs.appendFile('thing'+cc2+'.json', JSON.stringify(data), (err) => {
           if (err) console.log(err);
           console.log("Successfully Written to File.");
         });
 
         // Only to make thing.json file more organized.
-        fs.appendFile('thing.json', "\n",(err) => {
+        fs.appendFile('thing.json', ",",(err) => {
         });
       });
     });
