@@ -3,11 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
 var questions = require('./routes/questions');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
-
+var MongoClient = require('mongodb').MongoClient;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -45,17 +44,26 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
     if (error) {
       console.log("SSH connection error: " + error);
     }
-    mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/rjTestDB', { useNewUrlParser: true });
 
-    let db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'DB connection error:'));
-    db.once('open', function () {
-      // we're connected!
-      console.log("DB connection successful");
+    //put db stuff here
+    //connect to database and run bullshit query
+    var url = "mongodb://127.0.0.1:27017";
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("rjTestDB");
+      var query = { usrName: "zww" };
+    dbo.collection("only4test").find(query).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      db.close();
     });
   });
+
+
+  });
 });
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

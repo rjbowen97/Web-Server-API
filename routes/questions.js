@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var Question = require('../models/Questions.js');
 
 /* Get All Questions  or Questions Based off Search Params
