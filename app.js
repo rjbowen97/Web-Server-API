@@ -47,7 +47,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
       console.log("SSH connection error: " + error);
     }
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/rjTestDB', { useNewUrlParser: true });
+    mongoose.connect('mongodb://localhost:27017/autoexam', { useNewUrlParser: true });
     
     let db = mongoose.connection;
     db.on('error', console.error.bind(console, 'DB connection error:'));
@@ -56,7 +56,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
       console.log("DB connection successful");
 
       // Pull data in the MongoDB to a single JSON file named "thing.json"
-      var cursor = db.collection("only4test").find();
+      var cursor = db.collection('questionsUsingXml2js').find();
       cursor.forEach(function (items) {
         var data = items;
         fs.appendFile('thing.json', JSON.stringify(data), (err) => {
