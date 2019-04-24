@@ -1,1 +1,560 @@
-{"_id":"5cb90cd1bd0a39660a87c05d","grade_history\\dxml":{"grade_history":{"grade_grades":["\n  "]}},"grades\\dxml":{"activity_gradebook":{"grade_items":[{"grade_item":[{"\\D":{"id":"1041"},"categoryid":["65"],"itemname":["yes_or_no function"],"itemtype":["mod"],"itemmodule":["vpl"],"iteminstance":["264"],"itemnumber":["0"],"iteminfo":["$@NULL@$"],"idnumber":["1128"],"calculation":["$@NULL@$"],"gradetype":["1"],"grademax":["4.00000"],"grademin":["0.00000"],"scaleid":["$@NULL@$"],"outcomeid":["$@NULL@$"],"gradepass":["0.00000"],"multfactor":["1.00000"],"plusfactor":["0.00000"],"aggregationcoef":["0.00000"],"aggregationcoef2":["0.00244"],"weightoverride":["0"],"sortorder":["67"],"display":["0"],"decimals":["$@NULL@$"],"hidden":["1"],"locked":["0"],"locktime":["0"],"needsupdate":["0"],"timecreated":["1549478658"],"timemodified":["1551208723"],"grade_grades":["\n      "]}]}],"grade_letters":["\n  "]}},"inforef\\dxml":{"inforef":{"grade_itemref":[{"grade_item":[{"id":["1041"]}]}]}},"module\\dxml":{"module":{"\\D":{"id":"1128","version":"2018081117"},"modulename":["vpl"],"sectionid":["337"],"sectionnumber":["14"],"idnumber":["1128"],"added":["1532706875"],"score":["0"],"indent":["0"],"visible":["0"],"visibleold":["1"],"groupmode":["0"],"groupingid":["0"],"completion":["0"],"completiongradeitemnumber":["$@NULL@$"],"completionview":["0"],"completionexpected":["0"],"availability":["$@NULL@$"],"showdescription":["0"],"tags":[{"tag":[{"\\D":{"id":"245"},"name":["es unit: iteration"],"rawname":["ES Unit: iteration"]},{"\\D":{"id":"249"},"name":["es language: python"],"rawname":["ES language: Python"]},{"\\D":{"id":"251"},"name":["es cognitive level: application"],"rawname":["ES cognitive level: application"]},{"\\D":{"id":"253"},"name":["es difficulty: moderate"],"rawname":["ES difficulty: moderate"]},{"\\D":{"id":"256"},"name":["es slo: create new code using a while loop whose c"],"rawname":["ES SLO: create new code using a while loop whose c"]},{"\\D":{"id":"257"},"name":["es slo: create a boolean function"],"rawname":["ES SLO: create a boolean function"]}]}]}},"roles\\dxml":{"roles":{"role_overrides":["\n  "],"role_assignments":["\n  "]}},"vpl\\dxml":{"activity":{"\\D":{"id":"264","moduleid":"1128","modulename":"vpl","contextid":"20810"},"vpl":[{"\\D":{"id":"264"},"name":["yes_or_no function"],"shortdescription":[""],"intro":["<div style=\"\"><div><div><div id=\"intro\"><b><h5><b>IMPORTANT:&nbsp;&nbsp;</b></h5></b><div><b><h5>After\n you have defined your function:</h5><ul><li><h5>call your function and use the rocket icon to run your code</h5></li><li><h5>before evaluating with the checkmark icon you MUST either comment out or remove your call to your function</h5></li></ul><br><p></p><p>-------------------------------------------------------------------------</p>\n\n<p>yes_or_no function<b><br></b><br></p>\n\n</b><p>Define a function named <b><span><code>yes_or_no</code></span></b><span style=\"font-size: 12px; white-space: nowrap; background-color: rgb(247, 247, 249);\"><b>&nbsp;</b></span>which consumes no parameters. When called, it gets \ninput from the user until the user types either <i><b>'yes'</b></i> or<b><i> 'no',</i></b> at which \npoint the function should return <b><i>True </i></b>if the user typed 'yes' and <b><i>False </i></b>if the user typed 'no'. Any other entries by the user are ignored and another value must be input.<br></p>For example:</div><div><br>&nbsp;\n\n<b><table cellpadding=\"0\" border=\"0\">\n <thead>\n  <tr>\n   <td>\n   <pre><span style=\"\">Test</span></pre>\n   </td>\n   <td>\n   <pre><span style=\"\">Input</span></pre></td><td><pre><span style=\"\">&nbsp;<span style=\"font-size: 13px; white-space: pre-wrap; background-color: rgb(245, 245, 245);\">Result</span></span></pre></td></tr></thead><tbody><tr><td><pre><span>print(yes_or_no())</span></pre>\n  </td>\n  <td>\n  <pre><span style=\"font-weight: normal;\">hello<br>blank<br>no</span></pre>\n  </td><td><pre><span style=\"font-weight: normal;\">&nbsp;False</span></pre></td>\n </tr>\n <tr>\n  <td><b><pre><span>print(yes_or_no())</span></pre><table cellpadding=\"0\" border=\"0\"><tbody><tr><td><br></td><td><br></td></tr></tbody></table></b><br></td><td><b><b><pre>2<br>not<br>not<br>blank<br>yes<br></pre></b></b></td><td><b><b><pre>True</pre></b></b><br></td></tr></tbody></table>\n\n</b><b><p><span></span></p></b></div></div></div></div></div><br><p></p><p></p><p></p><p></p><p></p>"],"introformat":["1"],"startdate":["1552539300"],"duedate":["1553921700"],"maxfiles":["1"],"maxfilesize":["0"],"requirednet":[""],"password":[""],"grade":["4"],"visiblegrade":["0"],"usevariations":["0"],"variationtitle":["$@NULL@$"],"basedon":["0"],"basedonname":["$@NULL@$"],"run":["1"],"debug":["0"],"evaluate":["1"],"evaluateonsubmission":["0"],"automaticgrading":["1"],"maxexetime":["$@NULL@$"],"restrictededitor":["1"],"example":["0"],"maxexememory":["$@NULL@$"],"maxexefilesize":["$@NULL@$"],"maxexeprocesses":["$@NULL@$"],"jailservers":["$@NULL@$"],"emailteachers":["0"],"worktype":["0"],"timemodified":["1551199987"],"freeevaluations":["0"],"reductionbyevaluation":["0"],"sebrequired":["0"],"sebkeys":[""],"runscript":[""],"debugscript":[""],"required_files":[{"required_file":[{"\\D":{"id":""},"name":["required_files.lst"],"content":["yes_or_no.py"],"encoding":["0"]},{"\\D":{"id":""},"name":["required_files/yes_or_no.py"],"content":["# ----------------------------------------------\nfrom customIO import *\n# DO NOT CHANGE THE CODE ABOVE THIS LINE\n\n# ----------------------------------------------\n# Student Name: \n# Lab Section Number: \n# ----------------------------------------------\n\n\n# Write your solution here\n\n\n\n\n\n"],"encoding":["0"]}]}],"execution_files":[{"execution_file":[{"\\D":{"id":""},"name":["execution_files.lst"],"content":["vpl_run.sh\nvpl_debug.sh\nvpl_evaluate.sh\nvpl_evaluate.cases\neval_yes_or_no.py\ncustomIO.py"],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files.lst.keep"],"content":["vpl_run.sh\nvpl_debug.sh\nvpl_evaluate.sh\nvpl_evaluate.cases\neval_yes_or_no.py\ncustomIO.py"],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/eval_yes_or_no.py"],"content":["import sys\nimport customIO\n\ncustomIO.time_delay = 1\n\n\n\"\"\" Skeleton for eval tests:::\n\n# test for problem X - DESCRIPTION\ntry:\n    \nexcept:\n    \n\"\"\"\n\ndef comment(s):\n    '''formats strings to create VPL comments'''\n    print('Comment :=>> ' + s)\n\n\ndef grade(num):\n    '''formats a number to create a VPL grade'''\n    print('Grade :=>> ' + str(num))\n\n\ntry:\n    import yes_or_no\nexcept Exception as e:\n    comment(\"Unable to import lab file  \" + str(e))\n    grade(0)\n    exit()\n\ntest_grade = 0\n\n\n# test Problem 7\n\ntry:\n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('yes')\n    customIO.input_buffer.append('no')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no does not return correct value when input is 'yes'\"\n    test_grade += 1\n    \n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('no')\n    customIO.input_buffer.append('yes')\n    assert yes_or_no.yes_or_no() == False, \"Incorrect - yes_or_no does not return correct value when input is 'no'\"\n    \n    test_grade += 1\n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('n')\n    customIO.input_buffer.append('y')\n    customIO.input_buffer.append('345')\n    customIO.input_buffer.append('yes')\n     customIO.input_buffer.append('no')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no looping may be incorrect'\"\n    test_grade += 1.0\n    \n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('')\n    customIO.input_buffer.append('yes')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no does not handle blank input correctly'\"\n    test_grade += 1.0\n \n    comment(\"Correct\")\n\nexcept AttributeError:\n\tcomment(\"missing or misnamed function\") \nexcept Exception as e :\n    comment(str(e))\n\n\n\ngrade(test_grade)\n"],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/vpl_debug.sh"],"content":[""],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/vpl_run.sh"],"content":["#!/bin/bash\necho \"#!/bin/bash\" > vpl_execution\nif [ -f ./vpl_evaluate.sh ] ; then\n      echo \"python3 eval_yes_or_no.py\" >> vpl_execution\nelse\n      echo \"python3 yes_or_no.py\" >> vpl_execution\nfi\nchmod +x vpl_execution"],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/customIO.py"],"content":["import builtins\nimport sys, select\n\noutput = []\ninputs = []\ntime_delay = 60\ninput_buffer = []\n# print function accepts multiple arguments\ndef print(*strings):\n    global output\n    concat_string = str(strings[0])\n    # concatenate the arguments before printing and appending to output list\n    for each_string in strings[1:]:\n        # if the value is a string type and starts with an escape sequence \n        # don't concatenate a space\n        if(type(each_string) == str and each_string[0] in ['\\n','\\t']):            \n            concat_string += str(each_string)\n        # otherwise add a space\n        else:\n            concat_string += \" \" + str(each_string)\n    # print the concatenated string\n    builtins.print(concat_string)\n    # add the concatenated string to the output list\n    output.append(concat_string)\n    \ndef set_input(string):\n    return string\n    \ndef input(string):\n    builtins.print(string)\n    \n    #change the delay i.e. 10 to allow students ample\n    #time to input and 1 when evaluating to\n    #make grading faster\n    #the fourth parameter is time in seconds\n    i, o, e = select.select( [sys.stdin], [], [], time_delay )\n\n    if (i):\n        return(sys.stdin.readline().strip())\n    else:\n        if input_buffer != []:\n            return input_buffer.pop(0)\n        else:\n            return ''\n        "],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/vpl_evaluate.cases"],"content":[""],"encoding":["0"]},{"\\D":{"id":""},"name":["execution_files/vpl_evaluate.sh"],"content":["#! /bin/bash\n# vpl_evaluate.sh\necho \"#! /bin/bash\" > vpl_execution\necho \"python3 eval_yes_or_no.py\">> vpl_execution\nchmod +x vpl_execution"],"encoding":["0"]}]}],"variations":["\n    "],"submissions":["\n    "]}]}}}
+{
+    "_id": "5cb90cd1bd0a39660a87c05d",
+    "grade_history\\dxml": {
+        "grade_history": {
+            "grade_grades": [
+                "\n  "
+            ]
+        }
+    },
+    "grades\\dxml": {
+        "activity_gradebook": {
+            "grade_items": [
+                {
+                    "grade_item": [
+                        {
+                            "\\D": {
+                                "id": "1041"
+                            },
+                            "categoryid": [
+                                "65"
+                            ],
+                            "itemname": [
+                                "yes_or_no function"
+                            ],
+                            "itemtype": [
+                                "mod"
+                            ],
+                            "itemmodule": [
+                                "vpl"
+                            ],
+                            "iteminstance": [
+                                "264"
+                            ],
+                            "itemnumber": [
+                                "0"
+                            ],
+                            "iteminfo": [
+                                "$@NULL@$"
+                            ],
+                            "idnumber": [
+                                "1128"
+                            ],
+                            "calculation": [
+                                "$@NULL@$"
+                            ],
+                            "gradetype": [
+                                "1"
+                            ],
+                            "grademax": [
+                                "4.00000"
+                            ],
+                            "grademin": [
+                                "0.00000"
+                            ],
+                            "scaleid": [
+                                "$@NULL@$"
+                            ],
+                            "outcomeid": [
+                                "$@NULL@$"
+                            ],
+                            "gradepass": [
+                                "0.00000"
+                            ],
+                            "multfactor": [
+                                "1.00000"
+                            ],
+                            "plusfactor": [
+                                "0.00000"
+                            ],
+                            "aggregationcoef": [
+                                "0.00000"
+                            ],
+                            "aggregationcoef2": [
+                                "0.00244"
+                            ],
+                            "weightoverride": [
+                                "0"
+                            ],
+                            "sortorder": [
+                                "67"
+                            ],
+                            "display": [
+                                "0"
+                            ],
+                            "decimals": [
+                                "$@NULL@$"
+                            ],
+                            "hidden": [
+                                "1"
+                            ],
+                            "locked": [
+                                "0"
+                            ],
+                            "locktime": [
+                                "0"
+                            ],
+                            "needsupdate": [
+                                "0"
+                            ],
+                            "timecreated": [
+                                "1549478658"
+                            ],
+                            "timemodified": [
+                                "1551208723"
+                            ],
+                            "grade_grades": [
+                                "\n      "
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "grade_letters": [
+                "\n  "
+            ]
+        }
+    },
+    "inforef\\dxml": {
+        "inforef": {
+            "grade_itemref": [
+                {
+                    "grade_item": [
+                        {
+                            "id": [
+                                "1041"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "module\\dxml": {
+        "module": {
+            "\\D": {
+                "id": "1128",
+                "version": "2018081117"
+            },
+            "modulename": [
+                "vpl"
+            ],
+            "sectionid": [
+                "337"
+            ],
+            "sectionnumber": [
+                "14"
+            ],
+            "idnumber": [
+                "1128"
+            ],
+            "added": [
+                "1532706875"
+            ],
+            "score": [
+                "0"
+            ],
+            "indent": [
+                "0"
+            ],
+            "visible": [
+                "0"
+            ],
+            "visibleold": [
+                "1"
+            ],
+            "groupmode": [
+                "0"
+            ],
+            "groupingid": [
+                "0"
+            ],
+            "completion": [
+                "0"
+            ],
+            "completiongradeitemnumber": [
+                "$@NULL@$"
+            ],
+            "completionview": [
+                "0"
+            ],
+            "completionexpected": [
+                "0"
+            ],
+            "availability": [
+                "$@NULL@$"
+            ],
+            "showdescription": [
+                "0"
+            ],
+            "tags": [
+                {
+                    "tag": [
+                        {
+                            "\\D": {
+                                "id": "245"
+                            },
+                            "name": [
+                                "es unit: iteration"
+                            ],
+                            "rawname": [
+                                "ES Unit: iteration"
+                            ]
+                        },
+                        {
+                            "\\D": {
+                                "id": "249"
+                            },
+                            "name": [
+                                "es language: python"
+                            ],
+                            "rawname": [
+                                "ES language: Python"
+                            ]
+                        },
+                        {
+                            "\\D": {
+                                "id": "251"
+                            },
+                            "name": [
+                                "es cognitive level: application"
+                            ],
+                            "rawname": [
+                                "ES cognitive level: application"
+                            ]
+                        },
+                        {
+                            "\\D": {
+                                "id": "253"
+                            },
+                            "name": [
+                                "es difficulty: moderate"
+                            ],
+                            "rawname": [
+                                "ES difficulty: moderate"
+                            ]
+                        },
+                        {
+                            "\\D": {
+                                "id": "256"
+                            },
+                            "name": [
+                                "es slo: create new code using a while loop whose c"
+                            ],
+                            "rawname": [
+                                "ES SLO: create new code using a while loop whose c"
+                            ]
+                        },
+                        {
+                            "\\D": {
+                                "id": "257"
+                            },
+                            "name": [
+                                "es slo: create a boolean function"
+                            ],
+                            "rawname": [
+                                "ES SLO: create a boolean function"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "roles\\dxml": {
+        "roles": {
+            "role_overrides": [
+                "\n  "
+            ],
+            "role_assignments": [
+                "\n  "
+            ]
+        }
+    },
+    "vpl\\dxml": {
+        "activity": {
+            "\\D": {
+                "id": "264",
+                "moduleid": "1128",
+                "modulename": "vpl",
+                "contextid": "20810"
+            },
+            "vpl": [
+                {
+                    "\\D": {
+                        "id": "264"
+                    },
+                    "name": [
+                        "yes_or_no function"
+                    ],
+                    "shortdescription": [
+                        ""
+                    ],
+                    "intro": [
+                        "<div style=\"\"><div><div><div id=\"intro\"><b><h5><b>IMPORTANT:&nbsp;&nbsp;</b></h5></b><div><b><h5>After\n you have defined your function:</h5><ul><li><h5>call your function and use the rocket icon to run your code</h5></li><li><h5>before evaluating with the checkmark icon you MUST either comment out or remove your call to your function</h5></li></ul><br><p></p><p>-------------------------------------------------------------------------</p>\n\n<p>yes_or_no function<b><br></b><br></p>\n\n</b><p>Define a function named <b><span><code>yes_or_no</code></span></b><span style=\"font-size: 12px; white-space: nowrap; background-color: rgb(247, 247, 249);\"><b>&nbsp;</b></span>which consumes no parameters. When called, it gets \ninput from the user until the user types either <i><b>'yes'</b></i> or<b><i> 'no',</i></b> at which \npoint the function should return <b><i>True </i></b>if the user typed 'yes' and <b><i>False </i></b>if the user typed 'no'. Any other entries by the user are ignored and another value must be input.<br></p>For example:</div><div><br>&nbsp;\n\n<b><table cellpadding=\"0\" border=\"0\">\n <thead>\n  <tr>\n   <td>\n   <pre><span style=\"\">Test</span></pre>\n   </td>\n   <td>\n   <pre><span style=\"\">Input</span></pre></td><td><pre><span style=\"\">&nbsp;<span style=\"font-size: 13px; white-space: pre-wrap; background-color: rgb(245, 245, 245);\">Result</span></span></pre></td></tr></thead><tbody><tr><td><pre><span>print(yes_or_no())</span></pre>\n  </td>\n  <td>\n  <pre><span style=\"font-weight: normal;\">hello<br>blank<br>no</span></pre>\n  </td><td><pre><span style=\"font-weight: normal;\">&nbsp;False</span></pre></td>\n </tr>\n <tr>\n  <td><b><pre><span>print(yes_or_no())</span></pre><table cellpadding=\"0\" border=\"0\"><tbody><tr><td><br></td><td><br></td></tr></tbody></table></b><br></td><td><b><b><pre>2<br>not<br>not<br>blank<br>yes<br></pre></b></b></td><td><b><b><pre>True</pre></b></b><br></td></tr></tbody></table>\n\n</b><b><p><span></span></p></b></div></div></div></div></div><br><p></p><p></p><p></p><p></p><p></p>"
+                    ],
+                    "introformat": [
+                        "1"
+                    ],
+                    "startdate": [
+                        "1552539300"
+                    ],
+                    "duedate": [
+                        "1553921700"
+                    ],
+                    "maxfiles": [
+                        "1"
+                    ],
+                    "maxfilesize": [
+                        "0"
+                    ],
+                    "requirednet": [
+                        ""
+                    ],
+                    "password": [
+                        ""
+                    ],
+                    "grade": [
+                        "4"
+                    ],
+                    "visiblegrade": [
+                        "0"
+                    ],
+                    "usevariations": [
+                        "0"
+                    ],
+                    "variationtitle": [
+                        "$@NULL@$"
+                    ],
+                    "basedon": [
+                        "0"
+                    ],
+                    "basedonname": [
+                        "$@NULL@$"
+                    ],
+                    "run": [
+                        "1"
+                    ],
+                    "debug": [
+                        "0"
+                    ],
+                    "evaluate": [
+                        "1"
+                    ],
+                    "evaluateonsubmission": [
+                        "0"
+                    ],
+                    "automaticgrading": [
+                        "1"
+                    ],
+                    "maxexetime": [
+                        "$@NULL@$"
+                    ],
+                    "restrictededitor": [
+                        "1"
+                    ],
+                    "example": [
+                        "0"
+                    ],
+                    "maxexememory": [
+                        "$@NULL@$"
+                    ],
+                    "maxexefilesize": [
+                        "$@NULL@$"
+                    ],
+                    "maxexeprocesses": [
+                        "$@NULL@$"
+                    ],
+                    "jailservers": [
+                        "$@NULL@$"
+                    ],
+                    "emailteachers": [
+                        "0"
+                    ],
+                    "worktype": [
+                        "0"
+                    ],
+                    "timemodified": [
+                        "1551199987"
+                    ],
+                    "freeevaluations": [
+                        "0"
+                    ],
+                    "reductionbyevaluation": [
+                        "0"
+                    ],
+                    "sebrequired": [
+                        "0"
+                    ],
+                    "sebkeys": [
+                        ""
+                    ],
+                    "runscript": [
+                        ""
+                    ],
+                    "debugscript": [
+                        ""
+                    ],
+                    "required_files": [
+                        {
+                            "required_file": [
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "required_files.lst"
+                                    ],
+                                    "content": [
+                                        "yes_or_no.py"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "required_files/yes_or_no.py"
+                                    ],
+                                    "content": [
+                                        "# ----------------------------------------------\nfrom customIO import *\n# DO NOT CHANGE THE CODE ABOVE THIS LINE\n\n# ----------------------------------------------\n# Student Name: \n# Lab Section Number: \n# ----------------------------------------------\n\n\n# Write your solution here\n\n\n\n\n\n"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "execution_files": [
+                        {
+                            "execution_file": [
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files.lst"
+                                    ],
+                                    "content": [
+                                        "vpl_run.sh\nvpl_debug.sh\nvpl_evaluate.sh\nvpl_evaluate.cases\neval_yes_or_no.py\ncustomIO.py"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files.lst.keep"
+                                    ],
+                                    "content": [
+                                        "vpl_run.sh\nvpl_debug.sh\nvpl_evaluate.sh\nvpl_evaluate.cases\neval_yes_or_no.py\ncustomIO.py"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/eval_yes_or_no.py"
+                                    ],
+                                    "content": [
+                                        "import sys\nimport customIO\n\ncustomIO.time_delay = 1\n\n\n\"\"\" Skeleton for eval tests:::\n\n# test for problem X - DESCRIPTION\ntry:\n    \nexcept:\n    \n\"\"\"\n\ndef comment(s):\n    '''formats strings to create VPL comments'''\n    print('Comment :=>> ' + s)\n\n\ndef grade(num):\n    '''formats a number to create a VPL grade'''\n    print('Grade :=>> ' + str(num))\n\n\ntry:\n    import yes_or_no\nexcept Exception as e:\n    comment(\"Unable to import lab file  \" + str(e))\n    grade(0)\n    exit()\n\ntest_grade = 0\n\n\n# test Problem 7\n\ntry:\n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('yes')\n    customIO.input_buffer.append('no')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no does not return correct value when input is 'yes'\"\n    test_grade += 1\n    \n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('no')\n    customIO.input_buffer.append('yes')\n    assert yes_or_no.yes_or_no() == False, \"Incorrect - yes_or_no does not return correct value when input is 'no'\"\n    \n    test_grade += 1\n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('n')\n    customIO.input_buffer.append('y')\n    customIO.input_buffer.append('345')\n    customIO.input_buffer.append('yes')\n     customIO.input_buffer.append('no')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no looping may be incorrect'\"\n    test_grade += 1.0\n    \n    customIO.input_buffer.clear()\n    customIO.input_buffer.append('')\n    customIO.input_buffer.append('yes')\n    assert yes_or_no.yes_or_no() == True, \"Incorrect - yes_or_no does not handle blank input correctly'\"\n    test_grade += 1.0\n \n    comment(\"Correct\")\n\nexcept AttributeError:\n\tcomment(\"missing or misnamed function\") \nexcept Exception as e :\n    comment(str(e))\n\n\n\ngrade(test_grade)\n"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/vpl_debug.sh"
+                                    ],
+                                    "content": [
+                                        ""
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/vpl_run.sh"
+                                    ],
+                                    "content": [
+                                        "#!/bin/bash\necho \"#!/bin/bash\" > vpl_execution\nif [ -f ./vpl_evaluate.sh ] ; then\n      echo \"python3 eval_yes_or_no.py\" >> vpl_execution\nelse\n      echo \"python3 yes_or_no.py\" >> vpl_execution\nfi\nchmod +x vpl_execution"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/customIO.py"
+                                    ],
+                                    "content": [
+                                        "import builtins\nimport sys, select\n\noutput = []\ninputs = []\ntime_delay = 60\ninput_buffer = []\n# print function accepts multiple arguments\ndef print(*strings):\n    global output\n    concat_string = str(strings[0])\n    # concatenate the arguments before printing and appending to output list\n    for each_string in strings[1:]:\n        # if the value is a string type and starts with an escape sequence \n        # don't concatenate a space\n        if(type(each_string) == str and each_string[0] in ['\\n','\\t']):            \n            concat_string += str(each_string)\n        # otherwise add a space\n        else:\n            concat_string += \" \" + str(each_string)\n    # print the concatenated string\n    builtins.print(concat_string)\n    # add the concatenated string to the output list\n    output.append(concat_string)\n    \ndef set_input(string):\n    return string\n    \ndef input(string):\n    builtins.print(string)\n    \n    #change the delay i.e. 10 to allow students ample\n    #time to input and 1 when evaluating to\n    #make grading faster\n    #the fourth parameter is time in seconds\n    i, o, e = select.select( [sys.stdin], [], [], time_delay )\n\n    if (i):\n        return(sys.stdin.readline().strip())\n    else:\n        if input_buffer != []:\n            return input_buffer.pop(0)\n        else:\n            return ''\n        "
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/vpl_evaluate.cases"
+                                    ],
+                                    "content": [
+                                        ""
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                },
+                                {
+                                    "\\D": {
+                                        "id": ""
+                                    },
+                                    "name": [
+                                        "execution_files/vpl_evaluate.sh"
+                                    ],
+                                    "content": [
+                                        "#! /bin/bash\n# vpl_evaluate.sh\necho \"#! /bin/bash\" > vpl_execution\necho \"python3 eval_yes_or_no.py\">> vpl_execution\nchmod +x vpl_execution"
+                                    ],
+                                    "encoding": [
+                                        "0"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "variations": [
+                        "\n    "
+                    ],
+                    "submissions": [
+                        "\n    "
+                    ]
+                }
+            ]
+        }
+    }
+}
