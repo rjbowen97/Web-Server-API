@@ -51,9 +51,9 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
     var url = "mongodb://127.0.0.1:27017";
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
-      var dbo = db.db("rjTestDB");
+      var dbo = db.db("autoexam");
       var query = { usrName: "zww" };
-    dbo.collection("only4test").find(query).toArray(function(err, result) {
+    dbo.collection("questionsUsingXml2js").find().toArray(function(err, result) {
       if (err) throw err;
       var jsonResult = JSON.stringify(result);
       fs.writeFile("result.json",jsonResult);
