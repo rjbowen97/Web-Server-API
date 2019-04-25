@@ -7,6 +7,7 @@ var questions = require('./routes/questions');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 var MongoClient = require('mongodb').MongoClient;
+var fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -46,7 +47,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
     }
 
     //put db stuff here
-    //connect to database and run bullshit query
+    //connect to database and run query
     var url = "mongodb://127.0.0.1:27017";
     MongoClient.connect(url, function(err, db) {
       if (err) throw err;
@@ -54,7 +55,8 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
       var query = { usrName: "zww" };
     dbo.collection("only4test").find(query).toArray(function(err, result) {
       if (err) throw err;
-      console.log(result);
+      var jsonResult = JSON.stringify(result);
+      fs.writeFile("result.json",jsonResult);
       db.close();
     });
   });
