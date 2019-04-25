@@ -57,6 +57,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
       if (err) throw err;
       var jsonResult = JSON.stringify(result);
       fs.writeFile("result.json",jsonResult);
+      console.log("check results.json!");
       db.close();
     });
   });
