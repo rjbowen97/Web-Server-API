@@ -10,8 +10,6 @@ fs.readFile('thing1.json', 'utf8', (err, thing1AsString) => {
     let thing1AsXMLString = builder.buildObject(thing1AsObject);
 
 
-
-
     fs.writeFile('thing1AsXML.xml', thing1AsXMLString, err => {
         console.log(err);
     });
