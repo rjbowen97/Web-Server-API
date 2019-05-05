@@ -19,6 +19,12 @@ function desanitizeObject(object) {
     return ret;
 }
 
+function writeObjectToFile(object, targetFile) {
+    fs.writeFile(targetFile, JSON.stringify(object), (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+    });
+}
 
 let sshCredentialPromptConfiguration = {
     properties: {
@@ -51,35 +57,25 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
             console.log("SSH connection error: " + error);
         }
 
-        let MongoClient = require('mongodb').MongoClient;
+        let mongoClient = require('mongodb').MongoClient;
 
         // Initialize connection once
-        MongoClient.connect("mongodb://localhost:27017", { "useNewUrlParser": true }, function (error, client) {
+        mongoClient.connect("mongodb://localhost:27017", { "useNewUrlParser": true }, function (error, client) {
             if (error) {
                 return console.error(error);
             }
 
             let questionsUsingXml2jsCollection = client.db('autoexam').collection('questionsUsingXml2js');
 
-            questionsUsingXml2jsCollection.find({}).toArray(function (err, sanitizedItems) {
-                console.log(sanitizedItems);
+            questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
+                writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
 
-                fs.writeFile('sanitizedItems.json', JSON.stringify(sanitizedItems), (err) => {
-                    if (err) throw err;
-                    console.log('The file has been saved!');
-                });
+                for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
+                    let currentFetchedQuestion = fetchedQuestions[currentIndex];
+                    let desanitizedQuestion = desanitizeObject(currentFetchedQuestion);
 
-                let desanitizedItems = [];
-
-                sanitizedItems.forEach(currentItem => {
-                    let desanitizedItem = desanitizeObject(currentItem);
-                    desanitizedItems.push(desanitizedItem);
-                });
-
-                fs.writeFile('desanitizedItems.json', JSON.stringify(desanitizedItems), (err) => {
-                    if (err) throw err;
-                    console.log('The file has been saved!');
-                });
+                    writeObjectToFile(desanitizedQuestion, "desanitizedQuestion" + currentIndex.toString() + ".json");
+                }
             });
         });
     });
