@@ -83,7 +83,14 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
 
                     for (let currentKey of Object.keys(currentDesanitizedQuestion)) {
                         if (currentKey.includes('.xml')) {
-                            writeObjectToFile(currentDesanitizedQuestion[currentKey], currentQuestionDirectory + '/' + currentKey);
+
+                            let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
+
+                            let xml2jsBuilder = new xml2js.Builder();
+                            var currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
+
+
+                            writeObjectToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
                         }
                     }
                 }
