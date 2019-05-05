@@ -42,36 +42,9 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
   };
 
   let server = tunnel(sshTunnelConfig, function (error, server) {
-    var fs = require('fs');
     if (error) {
       console.log("SSH connection error: " + error);
     }
-    mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/autoexam', { useNewUrlParser: true });
-    
-    let db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'DB connection error:'));
-    db.once('open', function () {
-      // we're connected!
-      console.log("DB connection successful");
-
-      // Pull data in the MongoDB to a single JSON file named "thing.json"
-      var cursor = db.collection('questionsUsingXml2js').find();
-      var cc=0
-      cursor.forEach(function (items) {
-        var data = items;
-        cc++;
-        var cc2=cc.toString();
-        fs.appendFile('thing'+cc2+'.json', JSON.stringify(data), (err) => {
-          if (err) console.log(err);
-          console.log("Successfully Written to File.");
-        });
-
-        // Only to make thing.json file more organized.
-        fs.appendFile('thing.json', ",",(err) => {
-        });
-      });
-    });
   });
 });
 
