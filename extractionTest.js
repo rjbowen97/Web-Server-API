@@ -71,10 +71,18 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
 
                 for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
-                    let currentFetchedQuestion = fetchedQuestions[currentIndex];
-                    let desanitizedQuestion = desanitizeObject(currentFetchedQuestion);
+                    let questionDirectory = "DesanitizedQuestion" + currentIndex.toString();
 
-                    writeObjectToFile(desanitizedQuestion, "desanitizedQuestion" + currentIndex.toString() + ".json");
+                    if (!fs.existsSync(questionDirectory)) {
+                        fs.mkdirSync(questionDirectory);
+                    }
+
+                    let currentFetchedQuestion = fetchedQuestions[currentIndex];
+                    let currentDesanitizedQuestion = desanitizeObject(currentFetchedQuestion);
+
+                    writeObjectToFile(currentDesanitizedQuestion, "desanitizedQuestion" + currentIndex.toString() + ".json");
+
+
                 }
             });
         });
