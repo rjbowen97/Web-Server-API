@@ -1,6 +1,21 @@
 let xml2js = require('xml2js');
 let fs = require('fs');
 
+function desanitizeKey(key) {
+    return key.replace(/\\D/g, '$').replace(/\\d/g, '.').replace(/\\b/g, '\\');
+}
+
+function desanitizeObject(object) {
+    if (object instanceof Array) return object;
+    if (typeof object !== 'object') return object;
+
+    const ret = {};
+    for (const entry of Object.entries(object)) {
+        ret[desanitizeKey(entry[0])] = desanitizeObject(entry[1]);
+    }
+    return ret;
+}
+
 fs.readFile('vpl1128.json', 'utf8', (err, thing1AsString) => {
     console.log(thing1AsString);
 
