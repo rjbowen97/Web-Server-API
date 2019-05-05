@@ -1,6 +1,6 @@
 let xml2js = require('xml2js');
-let fs = require('fs');
 var mongodb = require('mongodb');
+let fs = require('fs');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 
@@ -20,7 +20,7 @@ function desanitizeObject(object) {
 }
 
 
-var sshCredentialPromptConfiguration = {
+let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {
             description: 'Enter ssh username (EECIS username)',
@@ -61,9 +61,25 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
 
             let questionsUsingXml2jsCollection = client.db('autoexam').collection('questionsUsingXml2js');
 
-            questionsUsingXml2jsCollection.find({}).toArray(function (err, items) {
-                let desanitizedObject = desanitizeObject(items[0]);                
-                console.log(desanitizedObject);
+            questionsUsingXml2jsCollection.find({}).toArray(function (err, sanitizedItems) {
+                console.log(sanitizedItems);
+
+                fs.writeFile('sanitizedItems.json', JSON.stringify(sanitizedItems), (err) => {
+                    if (err) throw err;
+                    console.log('The file has been saved!');
+                });
+
+                let desanitizedItems = [];
+
+                sanitizedItems.forEach(currentItem => {
+                    let desanitizedItem = desanitizeObject(currentItem);
+                    desanitizedItems.push(desanitizedItem);
+                });
+
+                fs.writeFile('desanitizedItems.json', JSON.stringify(desanitizedItems), (err) => {
+                    if (err) throw err;
+                    console.log('The file has been saved!');
+                });
             });
         });
     });
