@@ -26,6 +26,13 @@ function writeObjectToFile(object, targetFile) {
     });
 }
 
+function writeXMLStringToFile(xmlString, targetFile) {
+    fs.writeFile(targetFile, xmlString, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+    });
+}
+
 let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {
@@ -69,6 +76,11 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
 
             questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
                 writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
+                
+                console.log('Started desanitizing');
+                let desanitizedFetchedQuestions = desanitizeObject(fetchedQuestions)
+                writeObjectToFile(desanitizedFetchedQuestions, 'desanitizedFetchedQuestions.json');
+                console.log('Finished desanitizing!');
 
                 for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
                     let currentQuestionDirectory = "./DesanitizedQuestion" + currentIndex.toString();
@@ -77,20 +89,18 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                         fs.mkdirSync(currentQuestionDirectory);
                     }
 
-                    let currentFetchedQuestion = fetchedQuestions[currentIndex];
-
-                    let currentDesanitizedQuestion = desanitizeObject(currentFetchedQuestion);
+                    let currentDesanitizedQuestion = desanitizedFetchedQuestions[currentIndex];;
 
                     for (let currentKey of Object.keys(currentDesanitizedQuestion)) {
                         if (currentKey.includes('.xml')) {
 
                             let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
+                            console.log(currentMBZFileContents);
 
-                            let xml2jsBuilder = new xml2js.Builder();
-                            var currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
+                            let xml2jsBuilder = new xml2js.Builder({"attrkey": "$"});
+                            let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
-
-                            writeObjectToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
+                            writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
                         }
                     }
                 }
