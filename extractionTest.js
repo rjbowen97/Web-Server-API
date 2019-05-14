@@ -4,6 +4,12 @@ let fs = require('fs');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 
+var fsTar = require('fs-extra');
+var targz = require('targz');
+
+
+
+
 function desanitizeKey(key) {
     return key.replace(/\\D/g, '$').replace(/\\d/g, '.').replace(/\\b/g, '\\');
 }
@@ -28,6 +34,15 @@ function writeObjectToFile(object, targetFile) {
 
 function writeXMLStringToFile(xmlString, targetFile) {
     fs.writeFile(targetFile, xmlString, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+    });
+}
+
+
+// for generating files we aren't pulling from the database
+function generateMiscFiles(targetFile){
+    fs.writeFile(targeFile, '', (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
     });
@@ -82,8 +97,14 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 writeObjectToFile(desanitizedFetchedQuestions, 'desanitizedFetchedQuestions.json');
                 console.log('Finished desanitizing!');
 
+                // creating activities directory that holds all the questions
+                let activitiesDirectory = "./activities"
+                if (!fs.existsSync(activitiesDirectory)) {
+                    fs.mkdirSync(activitiesDirectory);
+                }
+
                 for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
-                    let currentQuestionDirectory = "./DesanitizedQuestion" + currentIndex.toString();
+                    let currentQuestionDirectory = activitiesDirectory + "/DesanitizedQuestion" + currentIndex.toString();
 
                     if (!fs.existsSync(currentQuestionDirectory)) {
                         fs.mkdirSync(currentQuestionDirectory);
@@ -104,7 +125,47 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                         }
                     }
                 }
+
+
+                let courseDirectory = "./course"
+                if (!fs.existsSync(courseDirectory)) {
+                    fs.mkdirSync(courseDirectory);
+                }
+
+                let filesDirectory = "./files"
+                if (!fs.existsSync(filesDirectory)) {
+                    fs.mkdirSync(filesDirectory);
+                }
+
+                // generateMiscFiles('./files/test.txt')
+
+                let sectionsDirectory = "./sections"
+                if (!fs.existsSync(sectionsDirectory)) {
+                    fs.mkdirSync(sectionsDirectory);
+                }
             });
+
+            //copy the base files needed for the mbz
+            fsTar.copy('./', './package_test/base_mbz_2', function (err) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("success!");
+                }
+            }); //copies directory, even if it has subdirectories or files
+
+            //compress files into tar.gz archive
+            targz.compress({
+                src: './package_test/base_mbz_2',
+                dest: './package_test/base_mbz_2.mbz'
+            }, function(err){
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log("Done!");
+                }
+            });
+
         });
     });
 });
