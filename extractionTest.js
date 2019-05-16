@@ -97,8 +97,13 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 writeObjectToFile(desanitizedFetchedQuestions, 'desanitizedFetchedQuestions.json');
                 console.log('Finished desanitizing!');
 
+                // creating parent directory
+                let activitiesDirectory = "./MBZ"
+                if (!fs.existsSync(activitiesDirectory)) {
+                    fs.mkdirSync(activitiesDirectory);
+                }
                 // creating activities directory that holds all the questions
-                let activitiesDirectory = "./activities"
+                let activitiesDirectory = "./MBZ/activities"
                 if (!fs.existsSync(activitiesDirectory)) {
                     fs.mkdirSync(activitiesDirectory);
                 }
@@ -127,26 +132,26 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 }
 
 
-                let courseDirectory = "./course"
+                let courseDirectory = "./MBZ/course"
                 if (!fs.existsSync(courseDirectory)) {
                     fs.mkdirSync(courseDirectory);
                 }
 
-                let filesDirectory = "./files"
+                let filesDirectory = "./MBZ/files"
                 if (!fs.existsSync(filesDirectory)) {
                     fs.mkdirSync(filesDirectory);
                 }
 
                 // generateMiscFiles('./files/test.txt')
 
-                let sectionsDirectory = "./sections"
+                let sectionsDirectory = "./MBZ/sections"
                 if (!fs.existsSync(sectionsDirectory)) {
                     fs.mkdirSync(sectionsDirectory);
                 }
             });
 
             //copy the base files needed for the mbz
-            fsTar.copy('./', './package_test/base_mbz_2', function (err) {
+            fsTar.copy('./MBZ', './package_test/base_mbz_2', function (err) {
                 if (err) {
                     console.error(err);
                 } else {
