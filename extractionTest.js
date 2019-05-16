@@ -98,9 +98,9 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 console.log('Finished desanitizing!');
 
                 // creating parent directory
-                let activitiesDirectory = "./MBZ"
-                if (!fs.existsSync(activitiesDirectory)) {
-                    fs.mkdirSync(activitiesDirectory);
+                let parentDir = "./MBZ"
+                if (!fs.existsSync(parentDir)) {
+                    fs.mkdirSync(parentDir);
                 }
                 // creating activities directory that holds all the questions
                 let activitiesDirectory = "./MBZ/activities"
