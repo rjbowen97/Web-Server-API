@@ -148,21 +148,23 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 if (!fs.existsSync(sectionsDirectory)) {
                     fs.mkdirSync(sectionsDirectory);
                 }
+
+                
             });
 
-            //copy the base files needed for the mbz
-            fsTar.copy('./MBZ', './package_test/base_mbz_2', function (err) {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log("success!");
-                }
-            }); //copies directory, even if it has subdirectories or files
+            // //copy the base files needed for the mbz
+            // fsTar.copy('./MBZ', './package_test/base_mbz_2', function (err) {
+            //     if (err) {
+            //         console.error(err);
+            //     } else {
+            //         console.log("success!");
+            //     }
+            // }); //copies directory, even if it has subdirectories or files
 
             //compress files into tar.gz archive
             targz.compress({
-                src: './package_test/base_mbz_2',
-                dest: './package_test/base_mbz_2.mbz'
+                src: './MBZ',
+                dest: './MBZ.mbz'
             }, function(err){
                 if(err) {
                     console.log(err);
