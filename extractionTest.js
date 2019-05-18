@@ -88,6 +88,29 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
             }
 
             let questionsUsingXml2jsCollection = client.db('autoexam').collection('questionsUsingXml2js');
+           
+            //-----------------------------------------------------------------------------------------------------------------
+            // Extract all the questions out
+            // Haven't finished yet, need to eliminate duplicates
+            // Because I didn't find question bank, I was so confused how to query questions out from mongo database
+            let questionsUsingXml2jsonCollection = client.db('autoexam').collection('questionsUsingXml2json');
+            var questionIndex=[];
+
+            questionsUsingXml2jsonCollection.find({"module.module.tags.tag.id":"245"},{"module.module.tags.tag.id":1,"module.module.tags.tag.rawname":1}).forEach(function(doc) { 
+                for (var key in doc.module.module.tags.tag) {
+                    //doc.module.module.tags.tag[key]
+                    if(!questionIndex.includes(doc.module.module.tags.tag[key]["id"])){
+                        fs.appendFile('Question.json', JSON.stringify(doc.module.module.tags.tag[key]), (err) => {
+                            if (err) console.log(err);
+                          });
+                        fs.appendFile('Question.json', ",",(err) => {
+                        });
+                    }
+                    // console.log(doc.module.module.tags.tag[key]["id"]);
+                }
+            });
+
+            //-------------------------------------------------------------------------------------------------------------------
 
             questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
                 writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
