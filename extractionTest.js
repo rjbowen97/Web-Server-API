@@ -77,14 +77,14 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
 
             tagsCollection.find({}).toArray(function (err, fetchedTags) {
                 writeObjectToFile(fetchedTags, 'fetchedTags.json');
-                console.log('Logging tags available tags...');
-                fs.readFile('fetchedTags.json', (err, data) => {  
-                    if (err) throw err;
-                    let tag = JSON.parse(data);
-                    console.log(tag);
-                });  
-                console.log('All tags logged.')
             });
+            console.log('Logging tags available tags...');
+            let rawTagsData = fs.readFileSync('fetchedTags.json');  
+            var tagsData = JSON.parse(rawTagsData);  
+            for(var type in tagsData){
+                console.log(type+": "+tagsData[type]);
+            }
+            console.log('All tags logged.');
 
             questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
                 writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
