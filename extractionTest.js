@@ -73,6 +73,18 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
             }
 
             let questionsUsingXml2jsCollection = client.db('autoexam').collection('questionsUsingXml2js');
+            let tagsCollection = client.db('autoexam').collection('Tags');
+
+            tagsCollection.find({}).toArray(function (err, fetchedTags) {
+                writeObjectToFile(fetchedTags, 'fetchedTags.json');
+                console.log('Logging tags available tags...');
+                fs.readFile('fetchedTags.json', (err, data) => {  
+                    if (err) throw err;
+                    let tag = JSON.parse(data);
+                    console.log(tag);
+                });  
+                console.log('All tags logged.')
+            });
 
             questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
                 writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
