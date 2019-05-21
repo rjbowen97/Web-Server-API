@@ -48,6 +48,105 @@ function generateMiscFiles(targetFile){
     });
 }
 
+// for generating base files
+function createGradeHistoryXML(path){    
+    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/grade_history.xml");
+    v.writeStartDocument(true);
+    v.writeStartElement("grade_history");
+    v.writeStartElement("grade_grades");
+    v.writeEndElement();
+    v.writeFullEndElement();
+    // v.writeElementString(targetFile,'Hello World');
+    // v.writeAttributeString('foo','bar');
+    v.writeEndDocument();
+    console.log( v.flush() );
+}
+
+function createRolesXML(path){    
+    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/roles.xml");
+    v.writeStartDocument(true);
+    v.writeStartElement("roles");
+   
+    v.writeStartElement("role_overrides");
+    v.WriteEndElement();
+    v.writeStartElement("role_assignments");
+    v.writeEndElement();
+
+    v.writeFullEndElement();
+    // v.writeElementString(targetFile,'Hello World');
+    // v.writeAttributeString('foo','bar');
+    v.writeEndDocument();
+    
+    console.log( v.flush() );
+}
+
+function createCourseXML(path){    
+    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/course.xml");
+    v.writeStartDocument(true);
+    v.writeStartElement("course");
+    v.writeAttributeString('id','');
+    v.writeAttributeString('contextid', '');
+    
+    v.writeElementString("shortname", '');
+    v.writeElementString("fullname", '');
+    v.writeElementString('idnumber', '');
+    v.writeElementString('summary', '');
+    v.writeElementString('summaryformat', '');
+    v.writeElementString('format', '');
+    v.writeElementString('showgrades', '');
+    v.writeElementString('newsitems', '');
+    v.writeElementString('startdate', '');
+    v.writeElementString('enddate', '');
+    v.writeElementString('marker', '');
+    v.writeElementString('maxybytes', '');
+    v.writeElementString('legacyfiles', '');
+    v.writeElementString('showreports', '');
+    v.writeElementString('visible', '');
+    v.writeElementString('groupmode', '');
+    v.writeElementString('groupmodeforce', '');
+    v.writeElementString('defaultgroupingid', '');
+    v.writeElementString('lang', '');
+    v.writeElementString('theme', '');
+    v.writeElementString('timecreated', '');
+    v.writeElementString('timemodified', '');
+    v.writeElementString('requested', '');
+    v.writeElementString('enablecompletion', '');
+    v.writeElementString('completionnotify', '');
+    v.writeElementString('idnumber', '');
+
+    v.writeStartElement('category');
+    v.writeAttributeString('id', '');
+    v.writeElementString('name', '');
+    v.writeElementString('description', '');
+    v.writeEndElement();
+
+    v.writeElementString('tags','');
+
+    v.writeFullEndElement();
+    // v.writeElementString(targetFile,'Hello World');
+    // v.writeAttributeString('foo','bar');
+    v.writeEndDocument();
+    console.log( v.flush() );
+}
+
+// // change to correct spelling or current spelling in sample file??
+// function createEnrolmentsXML(){    
+//     var v = new  XMLWriter('UTF-8', '1.0').Create("enrolments.xml");
+//     v.writeStartDocument(true);
+//     v.writeStartElement("enrolments");
+   
+//     v.writeStartElement("role_overrides");
+//     v.writeEndElement();
+//     v.writeStartElement("role_assignments");
+//     v.writeEndElement();
+
+//     v.writeFullEndElement();
+//     // v.writeElementString(targetFile,'Hello World');
+//     // v.writeAttributeString('foo','bar');
+//     v.writeEndDocument();
+//     console.log( v.flush() );
+// }
+
 let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {
@@ -127,6 +226,8 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                             let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
                             writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
+                            createGradeHistoryXML(activitiesDirectory);
+                            createRolesXML(activitiesDirectory);
                         }
                     }
                 }
@@ -137,12 +238,12 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                     fs.mkdirSync(courseDirectory);
                 }
 
+                createCourseXML(courseDirectory);
+
                 let filesDirectory = "./MBZ/files"
                 if (!fs.existsSync(filesDirectory)) {
                     fs.mkdirSync(filesDirectory);
                 }
-
-                // generateMiscFiles('./files/test.txt')
 
                 let sectionsDirectory = "./MBZ/sections"
                 if (!fs.existsSync(sectionsDirectory)) {
