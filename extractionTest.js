@@ -4,6 +4,12 @@ let fs = require('fs');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 
+var fsTar = require('fs-extra');
+var targz = require('targz');
+
+
+
+
 function desanitizeKey(key) {
     return key.replace(/\\D/g, '$').replace(/\\d/g, '.').replace(/\\b/g, '\\');
 }
@@ -33,6 +39,362 @@ function writeXMLStringToFile(xmlString, targetFile) {
     });
 }
 
+
+// for generating files we aren't pulling from the database
+function generateMiscFiles(targetFile){
+    fs.writeFile(targeFile, '', (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+    });
+}
+
+
+// for generating base files
+function createGradeHistoryXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/grade_history.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/grade_history.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("grade_history");
+    xw.writeElement("grade_grades", '');
+
+    xw.endElement();
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+function createRolesXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/roles.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("roles");
+    xw.writeElement("role_overrides",'');
+    xw.writeElement("role_assignments",'');
+    xw.endElement();
+
+
+    xw.endDocument();
+    
+    console.log( xw.flush() );
+
+    ws.end()    
+}
+
+function createCourseXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/course.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/course.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("course");
+    xw.writeAttribute('id','');
+    xw.writeAttribute('contextid', '');
+    
+    xw.writeElement("shortname", '');
+    xw.writeElement("fullname", '');
+    xw.writeElement('idnumber', '');
+    xw.writeElement('summary', '');
+    xw.writeElement('summaryformat', '');
+    xw.writeElement('format', '');
+    xw.writeElement('showgrades', '');
+    xw.writeElement('newsitems', '');
+    xw.writeElement('startdate', '');
+    xw.writeElement('enddate', '');
+    xw.writeElement('marker', '');
+    xw.writeElement('maxybytes', '');
+    xw.writeElement('legacyfiles', '');
+    xw.writeElement('showreports', '');
+    xw.writeElement('visible', '');
+    xw.writeElement('groupmode', '');
+    xw.writeElement('groupmodeforce', '');
+    xw.writeElement('defaultgroupingid', '');
+    xw.writeElement('lang', '');
+    xw.writeElement('theme', '');
+    xw.writeElement('timecreated', '');
+    xw.writeElement('timemodified', '');
+    xw.writeElement('requested', '');
+    xw.writeElement('enablecompletion', '');
+    xw.writeElement('completionnotify', '');
+    xw.writeElement('idnumber', '');
+
+    xw.startElement('category');
+    xw.writeAttribute('id', '');
+    xw.writeElement('name', '');
+    xw.writeElement('description', '');
+    xw.endElement();
+
+    xw.writeElement('tags','');
+
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    
+    ws.end()  
+}
+
+
+function createEnrolmentsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/enrolments.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/enrolments.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("enrolments");
+
+    xw.startElement("enrols");
+    
+    xw.startElement("enrol");
+    xw.writeElement('status', '');
+    xw.writeElement('name', '');
+    xw.writeElement('enrolperiod', '');
+    xw.writeElement('enrolstartdate', '');
+    xw.writeElement('enrolenddate', '');
+    xw.writeElement('expirynotify', '');
+    xw.writeElement('expirythreshold', '');
+    xw.writeElement('notifyall', '');
+    xw.writeElement('password', '');
+    xw.writeElement('cost', '');
+    xw.writeElement('currency', '');
+    xw.writeElement('roleid', '');
+    xw.writeElement('customint1', '');
+    xw.writeElement('customint2', '');
+    xw.writeElement('customint3', '');
+    xw.writeElement('customint4', '');
+    xw.writeElement('customint5', '');
+    xw.writeElement('customint6', '');
+    xw.writeElement('customint7', '');
+    xw.writeElement('customint8', '');
+    xw.writeElement('customchar1', '');
+    xw.writeElement('customchar2', '');
+    xw.writeElement('customchar3', '');
+    xw.writeElement('customdec1', '');
+    xw.writeElement('customdec2', '');
+    xw.writeElement('customtext1', '');
+    xw.writeElement('customtext2', '');
+    xw.writeElement('customtext3', '');
+    xw.writeElement('customtext4', '');
+    xw.writeElement('timecreated','');
+    xw.writeElement('timemodified','');
+    xw.writeElement('user_enrolments','');
+    xw.endElement();
+
+    xw.endElement();
+
+    xw.endElement();
+    
+    xw.endDocument();
+    
+    console.log( xw.flush() );
+
+    ws.end()    
+}
+
+
+function createInforefXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/inforef.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/inforef.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("inforef");
+    xw.startElement("grade_itemref", '');
+    xw.startElement("grade_item", '');
+    xw.writeElement('id','');
+    xw.endElement();
+    xw.endElement();
+    xw.endElement();
+    xw.endElement();
+    
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+function createSectionXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/section.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/section.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("section");
+    xw.writeAttribute('id', '');
+
+    xw.writeElement("number", '');
+    xw.writeElement("summary", '');
+    xw.writeElement('summaryformat','');
+    xw.writeElement('sequence','');
+    xw.writeElement('visible','');
+    xw.writeElement('availabilityjson','');
+
+    xw.startElement('couse_format_options','');
+    xw.writeAttribute('id', '');
+    xw.writeElement('format', '');
+    xw.writeElement('name','');
+    xw.writeElement('value','');
+    xw.endElement();
+
+    xw.endElement();
+
+    
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createGroupsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/groups.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/groups.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("groups");
+    xw.writeElement("groupings", '');
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+function createOutcomesXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/outcomes.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/outcomes.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("outcomes_definition", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createRolesOuter(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/roles.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("roles_definition", '');
+    
+    xw.startElement('role','');
+    xw.writeAttribute('id', '');
+    xw.writeElement('name','');
+    xw.writeElement('shortname','');
+    xw.writeElement('nameincourse','');
+    xw.writeElement('description','');
+    xw.writeElement('sortorder','');
+    xw.writeElement('archetype','');
+    xw.endElement();
+
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createScalesXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/scales.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/scales.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("scales_definition", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createQuestionsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/questions.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/questions.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("questions_categories", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
 let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {
@@ -48,6 +410,101 @@ let sshCredentialPromptConfiguration = {
         }
     }
 };
+
+function createMoodleBackupXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/moodle_backup.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/moodle_backup.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("moodle_backup", '');
+    
+    xw.startElement("information");
+    xw.writeElement("name", '');
+    xw.writeElement("moodle_version", '');
+    xw.writeElement('moodle_release', '');
+    xw.writeElement('backup_version', '');
+    xw.writeElement('backup_release', '');
+    xw.writeElement('backup_date', '');
+    xw.writeElement('mnet_remoteusers', '');
+    xw.writeElement('include_files', '');
+    xw.writeElement('include_file_references_to_external_content', '');
+    xw.writeElement('original_wwwroot', '');
+    xw.writeElement('original_site_identifier_hash', '');
+    xw.writeElement('original_course_id', '');
+    xw.writeElement('original_course_format', '');
+    xw.writeElement('original_course_fullname', '');
+    xw.writeElement('original_course_shortname', '');
+    xw.writeElement('original_course_startdate', '');
+    xw.writeElement('original_course_enddate', '');
+    xw.writeElement('original_course_contextid', '');
+    xw.writeElement('original_system_contextid', '');
+    
+    xw.startElement('details','');
+    
+    xw.startElement('detail','');
+    xw.writeAttribute('backup_id', '');
+    xw.writeElement('type','');
+    xw.writeElement('format', '');
+    xw.writeElement('interactive', '');
+    xw.writeElement('mode', '');
+    xw.writeElement('execution', '');
+    xw.writeElement('executiontime', '');
+    xw.endElement(); //detail
+
+    xw.endElement(); //details
+
+    xw.startElement('contents', '');
+    
+    xw.startElement('activities', '');
+    
+    xw.startElement('activity', '');
+    xw.writeElement('moduleid','');
+    xw.writeElement('sectionid','');
+    xw.writeElement('modulename','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //activity
+
+    xw.endElement(); //activities
+
+    xw.startElement('sections', '');
+    xw.startElement('section','');
+    xw.writeElement('sectionid','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //section
+    xw.endElement(); //sections
+
+    xw.startElement('course','');
+    xw.writeElement('courseid','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //course
+
+    xw.endElement(); //contents
+
+    xw.startElement('settings','');
+    xw.startElement('setting','');
+    xw.writeElement('level','');
+    xw.writeElement('name','');
+    xw.writeElement('value','');
+    xw.endElement(); //setting
+    xw.endElement(); //settings
+
+    xw.endElement(); //information
+    xw.endElement(); //moodlebackup
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
 
 prompt.get(sshCredentialPromptConfiguration, function (err, result) {
     let sshTunnelConfig = {
@@ -82,8 +539,19 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 writeObjectToFile(desanitizedFetchedQuestions, 'desanitizedFetchedQuestions.json');
                 console.log('Finished desanitizing!');
 
+                // creating parent directory
+                let parentDir = "./MBZ"
+                if (!fs.existsSync(parentDir)) {
+                    fs.mkdirSync(parentDir);
+                }
+                // creating activities directory that holds all the questions
+                let activitiesDirectory = "./MBZ/activities"
+                if (!fs.existsSync(activitiesDirectory)) {
+                    fs.mkdirSync(activitiesDirectory);
+                }
+
                 for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
-                    let currentQuestionDirectory = "./DesanitizedQuestion" + currentIndex.toString();
+                    let currentQuestionDirectory = activitiesDirectory + "/DesanitizedQuestion" + currentIndex.toString();
 
                     if (!fs.existsSync(currentQuestionDirectory)) {
                         fs.mkdirSync(currentQuestionDirectory);
@@ -101,10 +569,63 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                             let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
                             writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
+                            createGradeHistoryXML(activitiesDirectory);
+                            createRolesXML(activitiesDirectory);
                         }
                     }
                 }
+
+
+                let courseDirectory = "./MBZ/course"
+                if (!fs.existsSync(courseDirectory)) {
+                    fs.mkdirSync(courseDirectory);
+                }
+                
+                createCourseXML(courseDirectory);
+                createEnrolmentsXML(courseDirectory);
+                createInforefXML(courseDirectory);
+                createRolesXML(courseDirectory);
+
+                let filesDirectory = "./MBZ/files"
+                if (!fs.existsSync(filesDirectory)) {
+                    fs.mkdirSync(filesDirectory);
+                }
+
+                let sectionsDirectory = "./MBZ/sections"
+                if (!fs.existsSync(sectionsDirectory)) {
+                    fs.mkdirSync(sectionsDirectory);
+                }
+
+                let section = "./MBZ/sections/section"
+                if (!fs.existsSync(section)) {
+                    fs.mkdirSync(section);
+                }
+
+                createInforefXML(section);
+                createSectionXML(section);
+               
+                createGroupsXML(parentDir);
+                createOutcomesXML(parentDir);
+                createRolesOuter(parentDir);
+                createScalesXML(parentDir);
+                createQuestionsXML(parentDir);
+                createMoodleBackupXML(parentDir);
             });
+
+            
+
+            //compress files into tar.gz archive
+            targz.compress({
+                src: './MBZ',
+                dest: './MBZ.mbz'
+            }, function(err){
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log("Done!");
+                }
+            });
+
         });
     });
 });
