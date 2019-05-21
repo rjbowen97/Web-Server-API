@@ -245,7 +245,155 @@ function createInforefXML(path){
     ws.end()
 }
 
+function createSectionXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/section.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/section.xml', 'UTF-8'));
+    });
 
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("section");
+    xw.writeAttribute('id', '');
+
+    xw.writeElement("number", '');
+    xw.writeElement("summary", '');
+    xw.writeElement('summaryformat','');
+    xw.writeElement('sequence','');
+    xw.writeElement('visible','');
+    xw.writeElement('availabilityjson','');
+
+    xw.startElement('couse_format_options','');
+    xw.writeAttribute('id', '');
+    xw.writeElement('format', '');
+    xw.writeElement('name','');
+    xw.writeElement('value','');
+    xw.endElement();
+
+    xw.endElement();
+
+    
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createGroupsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/groups.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/groups.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("groups");
+    xw.writeElement("groupings", '');
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+function createOutcomesXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/outcomes.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/outcomes.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("outcomes_definition", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createRolesOuter(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/roles.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("roles_definition", '');
+    
+    xw.startElement('role','');
+    xw.writeAttribute('id', '');
+    xw.writeElement('name','');
+    xw.writeElement('shortname','');
+    xw.writeElement('nameincourse','');
+    xw.writeElement('description','');
+    xw.writeElement('sortorder','');
+    xw.writeElement('archetype','');
+    xw.endElement();
+
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createScalesXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/scales.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/scales.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("scales_definition", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+function createQuestionsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/questions.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/questions.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.writeElement("questions_categories", '');
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
 
 let sshCredentialPromptConfiguration = {
     properties: {
@@ -353,7 +501,19 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                     fs.mkdirSync(sectionsDirectory);
                 }
 
-                
+                let section = "./MBZ/sections/section"
+                if (!fs.existsSync(section)) {
+                    fs.mkdirSync(section);
+                }
+
+                createInforefXML(section);
+                createSectionXML(section);
+               
+                createGroupsXML(parentDir);
+                createOutcomesXML(parentDir);
+                createRolesOuter(parentDir);
+                createScalesXML(parentDir);
+                createQuestionsXML(parentDir);
             });
 
             
