@@ -411,6 +411,101 @@ let sshCredentialPromptConfiguration = {
     }
 };
 
+function createMoodleBackupXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/moodle_backup.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/moodle_backup.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("moodle_backup", '');
+    
+    xw.startElement("information");
+    xw.writeElement("name", '');
+    xw.writeElement("moodle_version", '');
+    xw.writeElement('moodle_release', '');
+    xw.writeElement('backup_version', '');
+    xw.writeElement('backup_release', '');
+    xw.writeElement('backup_date', '');
+    xw.writeElement('mnet_remoteusers', '');
+    xw.writeElement('include_files', '');
+    xw.writeElement('include_file_references_to_external_content', '');
+    xw.writeElement('original_wwwroot', '');
+    xw.writeElement('original_site_identifier_hash', '');
+    xw.writeElement('original_course_id', '');
+    xw.writeElement('original_course_format', '');
+    xw.writeElement('original_course_fullname', '');
+    xw.writeElement('original_course_shortname', '');
+    xw.writeElement('original_course_startdate', '');
+    xw.writeElement('original_course_enddate', '');
+    xw.writeElement('original_course_contextid', '');
+    xw.writeElement('original_system_contextid', '');
+    
+    xw.startElement('details','');
+    
+    xw.startElement('detail','');
+    xw.writeAttribute('backup_id', '');
+    xw.writeElement('type','');
+    xw.writeElement('format', '');
+    xw.writeElement('interactive', '');
+    xw.writeElement('mode', '');
+    xw.writeElement('execution', '');
+    xw.writeElement('executiontime', '');
+    xw.endElement(); //detail
+
+    xw.endElement(); //details
+
+    xw.startElement('contents', '');
+    
+    xw.startElement('activities', '');
+    
+    xw.startElement('activity', '');
+    xw.writeElement('moduleid','');
+    xw.writeElement('sectionid','');
+    xw.writeElement('modulename','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //activity
+
+    xw.endElement(); //activities
+
+    xw.startElement('sections', '');
+    xw.startElement('section','');
+    xw.writeElement('sectionid','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //section
+    xw.endElement(); //sections
+
+    xw.startElement('course','');
+    xw.writeElement('courseid','');
+    xw.writeElement('title','');
+    xw.writeElement('directory','');
+    xw.endElement(); //course
+
+    xw.endElement(); //contents
+
+    xw.startElement('settings','');
+    xw.startElement('setting','');
+    xw.writeElement('level','');
+    xw.writeElement('name','');
+    xw.writeElement('value','');
+    xw.endElement(); //setting
+    xw.endElement(); //settings
+
+    xw.endElement(); //information
+    xw.endElement(); //moodlebackup
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
 prompt.get(sshCredentialPromptConfiguration, function (err, result) {
     let sshTunnelConfig = {
         username: result.sshUsername,
@@ -514,6 +609,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 createRolesOuter(parentDir);
                 createScalesXML(parentDir);
                 createQuestionsXML(parentDir);
+                createMoodleBackupXML(parentDir);
             });
 
             
