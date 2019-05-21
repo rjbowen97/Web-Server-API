@@ -64,10 +64,8 @@ function createGradeHistoryXML(path){
  
     xw.startElement("grade_history");
     xw.writeElement("grade_grades", '');
+
     xw.endElement();
-    xw.endElement();
-    // xw.writeElement(targetFile,'Hello World');
-    // xw.writeAttribute('foo','bar');
     xw.endDocument();
     console.log( xw.flush() );
     ws.end()
@@ -156,6 +154,99 @@ function createCourseXML(path){
     
     ws.end()  
 }
+
+
+function createEnrolmentsXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/enrolments.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/enrolments.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("enrolments");
+
+    xw.startElement("enrols");
+    
+    xw.startElement("enrol");
+    xw.writeElement('status', '');
+    xw.writeElement('name', '');
+    xw.writeElement('enrolperiod', '');
+    xw.writeElement('enrolstartdate', '');
+    xw.writeElement('enrolenddate', '');
+    xw.writeElement('expirynotify', '');
+    xw.writeElement('expirythreshold', '');
+    xw.writeElement('notifyall', '');
+    xw.writeElement('password', '');
+    xw.writeElement('cost', '');
+    xw.writeElement('currency', '');
+    xw.writeElement('roleid', '');
+    xw.writeElement('customint1', '');
+    xw.writeElement('customint2', '');
+    xw.writeElement('customint3', '');
+    xw.writeElement('customint4', '');
+    xw.writeElement('customint5', '');
+    xw.writeElement('customint6', '');
+    xw.writeElement('customint7', '');
+    xw.writeElement('customint8', '');
+    xw.writeElement('customchar1', '');
+    xw.writeElement('customchar2', '');
+    xw.writeElement('customchar3', '');
+    xw.writeElement('customdec1', '');
+    xw.writeElement('customdec2', '');
+    xw.writeElement('customtext1', '');
+    xw.writeElement('customtext2', '');
+    xw.writeElement('customtext3', '');
+    xw.writeElement('customtext4', '');
+    xw.writeElement('timecreated','');
+    xw.writeElement('timemodified','');
+    xw.writeElement('user_enrolments','');
+    xw.endElement();
+
+    xw.endElement();
+
+    xw.endElement();
+    
+    xw.endDocument();
+    
+    console.log( xw.flush() );
+
+    ws.end()    
+}
+
+
+function createInforefXML(path){    
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/inforef.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/inforef.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("inforef");
+    xw.startElement("grade_itemref", '');
+    xw.startElement("grade_item", '');
+    xw.writeElement('id','');
+    xw.endElement();
+    xw.endElement();
+    xw.endElement();
+    xw.endElement();
+    
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
+}
+
+
+
 let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {
@@ -246,8 +337,11 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 if (!fs.existsSync(courseDirectory)) {
                     fs.mkdirSync(courseDirectory);
                 }
-
+                
                 createCourseXML(courseDirectory);
+                createEnrolmentsXML(courseDirectory);
+                createInforefXML(courseDirectory);
+                createRolesXML(courseDirectory);
 
                 let filesDirectory = "./MBZ/files"
                 if (!fs.existsSync(filesDirectory)) {
@@ -262,14 +356,7 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
                 
             });
 
-            // //copy the base files needed for the mbz
-            // fsTar.copy('./MBZ', './package_test/base_mbz_2', function (err) {
-            //     if (err) {
-            //         console.error(err);
-            //     } else {
-            //         console.log("success!");
-            //     }
-            // }); //copies directory, even if it has subdirectories or files
+            
 
             //compress files into tar.gz archive
             targz.compress({
