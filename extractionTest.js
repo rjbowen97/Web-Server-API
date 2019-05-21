@@ -48,105 +48,114 @@ function generateMiscFiles(targetFile){
     });
 }
 
+
 // for generating base files
 function createGradeHistoryXML(path){    
-    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/grade_history.xml");
-    v.writeStartDocument(true);
-    v.writeStartElement("grade_history");
-    v.writeStartElement("grade_grades");
-    v.writeEndElement();
-    v.writeFullEndElement();
-    // v.writeElementString(targetFile,'Hello World');
-    // v.writeAttributeString('foo','bar');
-    v.writeEndDocument();
-    console.log( v.flush() );
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/grade_history.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/grade_history.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+ 
+    xw.startElement("grade_history");
+    xw.writeElement("grade_grades", '');
+    xw.endElement();
+    xw.endElement();
+    // xw.writeElement(targetFile,'Hello World');
+    // xw.writeAttribute('foo','bar');
+    xw.endDocument();
+    console.log( xw.flush() );
+    ws.end()
 }
 
 function createRolesXML(path){    
-    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/roles.xml");
-    v.writeStartDocument(true);
-    v.writeStartElement("roles");
-   
-    v.writeStartElement("role_overrides");
-    v.WriteEndElement();
-    v.writeStartElement("role_assignments");
-    v.writeEndElement();
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/roles.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
+    });
 
-    v.writeFullEndElement();
-    // v.writeElementString(targetFile,'Hello World');
-    // v.writeAttributeString('foo','bar');
-    v.writeEndDocument();
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("roles");
+    xw.writeElement("role_overrides",'');
+    xw.writeElement("role_assignments",'');
+    xw.endElement();
+
+
+    xw.endDocument();
     
-    console.log( v.flush() );
+    console.log( xw.flush() );
+
+    ws.end()    
 }
 
 function createCourseXML(path){    
-    var v = new  XMLWriter('UTF-8', '1.0').Create(path + "/course.xml");
-    v.writeStartDocument(true);
-    v.writeStartElement("course");
-    v.writeAttributeString('id','');
-    v.writeAttributeString('contextid', '');
+    var XMLWriter = require('xml-writer');
+    var ws = fs.createWriteStream(path + '/course.xml');
+    ws.on('close', function() {
+        console.log(fs.readFileSync(path + '/course.xml', 'UTF-8'));
+    });
+
+    xw = new XMLWriter(false, function(string, encoding) {
+        ws.write(string, encoding);
+    });
+    xw.startDocument('1.0', 'UTF-8')
+
+    xw.startElement("course");
+    xw.writeAttribute('id','');
+    xw.writeAttribute('contextid', '');
     
-    v.writeElementString("shortname", '');
-    v.writeElementString("fullname", '');
-    v.writeElementString('idnumber', '');
-    v.writeElementString('summary', '');
-    v.writeElementString('summaryformat', '');
-    v.writeElementString('format', '');
-    v.writeElementString('showgrades', '');
-    v.writeElementString('newsitems', '');
-    v.writeElementString('startdate', '');
-    v.writeElementString('enddate', '');
-    v.writeElementString('marker', '');
-    v.writeElementString('maxybytes', '');
-    v.writeElementString('legacyfiles', '');
-    v.writeElementString('showreports', '');
-    v.writeElementString('visible', '');
-    v.writeElementString('groupmode', '');
-    v.writeElementString('groupmodeforce', '');
-    v.writeElementString('defaultgroupingid', '');
-    v.writeElementString('lang', '');
-    v.writeElementString('theme', '');
-    v.writeElementString('timecreated', '');
-    v.writeElementString('timemodified', '');
-    v.writeElementString('requested', '');
-    v.writeElementString('enablecompletion', '');
-    v.writeElementString('completionnotify', '');
-    v.writeElementString('idnumber', '');
+    xw.writeElement("shortname", '');
+    xw.writeElement("fullname", '');
+    xw.writeElement('idnumber', '');
+    xw.writeElement('summary', '');
+    xw.writeElement('summaryformat', '');
+    xw.writeElement('format', '');
+    xw.writeElement('showgrades', '');
+    xw.writeElement('newsitems', '');
+    xw.writeElement('startdate', '');
+    xw.writeElement('enddate', '');
+    xw.writeElement('marker', '');
+    xw.writeElement('maxybytes', '');
+    xw.writeElement('legacyfiles', '');
+    xw.writeElement('showreports', '');
+    xw.writeElement('visible', '');
+    xw.writeElement('groupmode', '');
+    xw.writeElement('groupmodeforce', '');
+    xw.writeElement('defaultgroupingid', '');
+    xw.writeElement('lang', '');
+    xw.writeElement('theme', '');
+    xw.writeElement('timecreated', '');
+    xw.writeElement('timemodified', '');
+    xw.writeElement('requested', '');
+    xw.writeElement('enablecompletion', '');
+    xw.writeElement('completionnotify', '');
+    xw.writeElement('idnumber', '');
 
-    v.writeStartElement('category');
-    v.writeAttributeString('id', '');
-    v.writeElementString('name', '');
-    v.writeElementString('description', '');
-    v.writeEndElement();
+    xw.startElement('category');
+    xw.writeAttribute('id', '');
+    xw.writeElement('name', '');
+    xw.writeElement('description', '');
+    xw.endElement();
 
-    v.writeElementString('tags','');
+    xw.writeElement('tags','');
 
-    v.writeFullEndElement();
-    // v.writeElementString(targetFile,'Hello World');
-    // v.writeAttributeString('foo','bar');
-    v.writeEndDocument();
-    console.log( v.flush() );
+    xw.endElement();
+
+    xw.endDocument();
+    console.log( xw.flush() );
+    
+    ws.end()  
 }
-
-// // change to correct spelling or current spelling in sample file??
-// function createEnrolmentsXML(){    
-//     var v = new  XMLWriter('UTF-8', '1.0').Create("enrolments.xml");
-//     v.writeStartDocument(true);
-//     v.writeStartElement("enrolments");
-   
-//     v.writeStartElement("role_overrides");
-//     v.writeEndElement();
-//     v.writeStartElement("role_assignments");
-//     v.writeEndElement();
-
-//     v.writeFullEndElement();
-//     // v.writeElementString(targetFile,'Hello World');
-//     // v.writeAttributeString('foo','bar');
-//     v.writeEndDocument();
-//     console.log( v.flush() );
-// }
-
 let sshCredentialPromptConfiguration = {
     properties: {
         sshUsername: {

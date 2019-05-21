@@ -18,6 +18,7 @@
     "rimraf": "^2.6.2",
     "targz": "^1.0.1",
     "tunnel-ssh": "^4.1.4",
+    "xml-writer": "^1.7.0",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
