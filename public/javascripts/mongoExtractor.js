@@ -7,9 +7,6 @@ var prompt = require('prompt');
 var fsTar = require('fs-extra');
 var targz = require('targz');
 
-
-
-
 function desanitizeKey(key) {
     return key.replace(/\\D/g, '$').replace(/\\d/g, '.').replace(/\\b/g, '\\');
 }
