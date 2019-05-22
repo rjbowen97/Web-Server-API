@@ -545,12 +545,8 @@ prompt.get(sshCredentialPromptConfiguration, function (err, result) {
             };
 
             questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
-                writeObjectToFile(fetchedQuestions, 'fetchedQuestions.json');
                 
-                console.log('Started desanitizing');
                 let desanitizedFetchedQuestions = desanitizeObject(fetchedQuestions)
-                writeObjectToFile(desanitizedFetchedQuestions, 'desanitizedFetchedQuestions.json');
-                console.log('Finished desanitizing!');
 
                 // creating parent directory
                 let parentDir = "./MBZ"
