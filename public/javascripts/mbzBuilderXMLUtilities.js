@@ -1,4 +1,5 @@
-// for generating base files
+var fs = require('fs');
+
 function createGradeHistoryXML(path) {
     var XMLWriter = require('xml-writer');
     var ws = fs.createWriteStream(path + '/grade_history.xml');
@@ -273,7 +274,7 @@ function createOutcomesXML(path) {
 }
 
 
-function createRolesOuter(path) {
+function createRolesOuterXML(path) {
     var XMLWriter = require('xml-writer');
     var ws = fs.createWriteStream(path + '/roles.xml');
     ws.on('close', function () {
@@ -437,4 +438,19 @@ function createMoodleBackupXML(path) {
     xw.endDocument();
     console.log(xw.flush());
     ws.end()
+}
+
+module.exports = {
+    createGradeHistoryXML,
+    createRolesXML,
+    createCourseXML,
+    createEnrolmentsXML,
+    createInforefXML,
+    createSectionXML,
+    createGroupsXML,
+    createOutcomesXML,
+    createRolesOuterXML,
+    createScalesXML,
+    createQuestionsXML,
+    createMoodleBackupXML
 }

@@ -1,6 +1,6 @@
-let xml2js = require('xml2js');
+var xml2js = require('xml2js');
 var mongodb = require('mongodb');
-let fs = require('fs');
+var fs = require('fs');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 
@@ -8,6 +8,8 @@ var fsTar = require('fs-extra');
 var targz = require('targz');
 
 var mongoDesanitizer = require('./mongoDesanitizer');
+
+var mbzBuilderXMLUtilities = require('./mbzBuilderXMLUtilities');
 
 
 function writeObjectToFile(object, targetFile) {
@@ -32,7 +34,6 @@ function generateMiscFiles(targetFile) {
         console.log('The file has been saved!');
     });
 }
-
 
 
 var buildMBZ = function () {
@@ -108,8 +109,8 @@ var buildMBZ = function () {
                                 let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
                                 writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
-                                createGradeHistoryXML(activitiesDirectory);
-                                createRolesXML(activitiesDirectory);
+                                mbzBuilderXMLUtilities.createGradeHistoryXML(activitiesDirectory);
+                                mbzBuilderXMLUtilities.createRolesXML(activitiesDirectory);
                             }
                         }
                     }
@@ -120,10 +121,10 @@ var buildMBZ = function () {
                         fs.mkdirSync(courseDirectory);
                     }
 
-                    createCourseXML(courseDirectory);
-                    createEnrolmentsXML(courseDirectory);
-                    createInforefXML(courseDirectory);
-                    createRolesXML(courseDirectory);
+                    mbzBuilderXMLUtilities.createCourseXML(courseDirectory);
+                    mbzBuilderXMLUtilities.createEnrolmentsXML(courseDirectory);
+                    mbzBuilderXMLUtilities.createInforefXML(courseDirectory);
+                    mbzBuilderXMLUtilities.createRolesXML(courseDirectory);
 
                     let filesDirectory = "./MBZ/files"
                     if (!fs.existsSync(filesDirectory)) {
@@ -140,15 +141,15 @@ var buildMBZ = function () {
                         fs.mkdirSync(section);
                     }
 
-                    createInforefXML(section);
-                    createSectionXML(section);
+                    mbzBuilderXMLUtilities.createInforefXML(section);
+                    mbzBuilderXMLUtilities.createSectionXML(section);
 
-                    createGroupsXML(parentDir);
-                    createOutcomesXML(parentDir);
-                    createRolesOuter(parentDir);
-                    createScalesXML(parentDir);
-                    createQuestionsXML(parentDir);
-                    createMoodleBackupXML(parentDir);
+                    mbzBuilderXMLUtilities.createGroupsXML(parentDir);
+                    mbzBuilderXMLUtilities.createOutcomesXML(parentDir);
+                    mbzBuilderXMLUtilities.createRolesOuterXML(parentDir);
+                    mbzBuilderXMLUtilities.createScalesXML(parentDir);
+                    mbzBuilderXMLUtilities.createQuestionsXML(parentDir);
+                    mbzBuilderXMLUtilities.createMoodleBackupXML(parentDir);
                 });
 
 
