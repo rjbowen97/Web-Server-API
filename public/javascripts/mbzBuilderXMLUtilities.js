@@ -1,12 +1,17 @@
 var fs = require('fs');
 var XMLWriter = require('xml-writer');
 
+function createFileWriteStream(targetFolderPath, targetFile) {
+    let ws = fs.createWriteStream(targetFolderPath + targetFile);
+    ws.on('close', function () {
+        console.log(fs.readFileSync(targetFolderPath + targetFile, 'UTF-8'));
+    });
+
+    return ws;
+}
 
 function createGradeHistoryXML(path) {
-    var ws = fs.createWriteStream(path + '/grade_history.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/grade_history.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/grade_history.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -23,10 +28,7 @@ function createGradeHistoryXML(path) {
 }
 
 function createRolesXML(path) {
-    var ws = fs.createWriteStream(path + '/roles.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/roles.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -47,10 +49,7 @@ function createRolesXML(path) {
 }
 
 function createCourseXML(path) {
-    var ws = fs.createWriteStream(path + '/course.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/course.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/course.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -106,10 +105,7 @@ function createCourseXML(path) {
 
 
 function createEnrolmentsXML(path) {
-    var ws = fs.createWriteStream(path + '/enrolments.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/enrolments.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/enrolments.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -168,10 +164,7 @@ function createEnrolmentsXML(path) {
 
 
 function createInforefXML(path) {
-    var ws = fs.createWriteStream(path + '/inforef.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/inforef.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/inforef.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -193,10 +186,7 @@ function createInforefXML(path) {
 }
 
 function createSectionXML(path) {
-    var ws = fs.createWriteStream(path + '/section.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/section.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/section.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -230,10 +220,7 @@ function createSectionXML(path) {
 
 
 function createGroupsXML(path) {
-    var ws = fs.createWriteStream(path + '/groups.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/groups.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/groups.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -250,10 +237,7 @@ function createGroupsXML(path) {
 }
 
 function createOutcomesXML(path) {
-    var ws = fs.createWriteStream(path + '/outcomes.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/outcomes.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/outcomes.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -269,10 +253,7 @@ function createOutcomesXML(path) {
 
 
 function createRolesOuterXML(path) {
-    var ws = fs.createWriteStream(path + '/roles.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/roles.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/roles.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -300,10 +281,7 @@ function createRolesOuterXML(path) {
 
 
 function createScalesXML(path) {
-    var ws = fs.createWriteStream(path + '/scales.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/scales.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/scales.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -319,10 +297,7 @@ function createScalesXML(path) {
 
 
 function createQuestionsXML(path) {
-    var ws = fs.createWriteStream(path + '/questions.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/questions.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/questions.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
@@ -337,10 +312,7 @@ function createQuestionsXML(path) {
 }
 
 function createMoodleBackupXML(path) {
-    var ws = fs.createWriteStream(path + '/moodle_backup.xml');
-    ws.on('close', function () {
-        console.log(fs.readFileSync(path + '/moodle_backup.xml', 'UTF-8'));
-    });
+    let ws = createFileWriteStream(path, '/moodle_backup.xml');
 
     xw = new XMLWriter(false, function (string, encoding) {
         ws.write(string, encoding);
