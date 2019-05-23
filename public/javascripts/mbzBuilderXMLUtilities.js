@@ -10,51 +10,49 @@ function createFileWriteStream(targetFolderPath, targetFile) {
     return ws;
 }
 
+function createXMLWriter(targetWriteStream) {
+    let xw = new XMLWriter(false, function (string, encoding) {
+        targetWriteStream.write(string, encoding);
+    });
+
+    return xw;
+}
+
 function createGradeHistoryXML(path) {
     let ws = createFileWriteStream(path, '/grade_history.xml');
+    let xw = createXMLWriter(ws);
 
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("grade_history");
     xw.writeElement("grade_grades", '');
-
     xw.endElement();
+
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+
+    ws.end();
 }
 
 function createRolesXML(path) {
     let ws = createFileWriteStream(path, '/roles.xml');
+    let xw = createXMLWriter(ws);
 
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("roles");
     xw.writeElement("role_overrides", '');
     xw.writeElement("role_assignments", '');
     xw.endElement();
 
-
     xw.endDocument();
 
-    console.log(xw.flush());
-
-    ws.end()
+    ws.end();
 }
 
 function createCourseXML(path) {
     let ws = createFileWriteStream(path, '/course.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("course");
     xw.writeAttribute('id', '');
@@ -96,21 +94,17 @@ function createCourseXML(path) {
     xw.writeElement('tags', '');
 
     xw.endElement();
-
     xw.endDocument();
-    console.log(xw.flush());
 
-    ws.end()
+    ws.end();
 }
 
 
 function createEnrolmentsXML(path) {
     let ws = createFileWriteStream(path, '/enrolments.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("enrolments");
 
@@ -156,20 +150,14 @@ function createEnrolmentsXML(path) {
     xw.endElement();
 
     xw.endDocument();
-
-    console.log(xw.flush());
-
-    ws.end()
+    ws.end();
 }
 
 
 function createInforefXML(path) {
     let ws = createFileWriteStream(path, '/inforef.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("inforef");
     xw.startElement("grade_itemref", '');
@@ -181,17 +169,13 @@ function createInforefXML(path) {
     xw.endElement();
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 function createSectionXML(path) {
     let ws = createFileWriteStream(path, '/section.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("section");
     xw.writeAttribute('id', '');
@@ -214,51 +198,39 @@ function createSectionXML(path) {
 
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 
 function createGroupsXML(path) {
     let ws = createFileWriteStream(path, '/groups.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("groups");
     xw.writeElement("groupings", '');
     xw.endElement();
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 function createOutcomesXML(path) {
     let ws = createFileWriteStream(path, '/outcomes.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.writeElement("outcomes_definition", '');
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 
 function createRolesOuterXML(path) {
     let ws = createFileWriteStream(path, '/roles.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("roles_definition", '');
 
@@ -275,49 +247,37 @@ function createRolesOuterXML(path) {
     xw.endElement();
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 
 function createScalesXML(path) {
     let ws = createFileWriteStream(path, '/scales.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.writeElement("scales_definition", '');
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 
 function createQuestionsXML(path) {
     let ws = createFileWriteStream(path, '/questions.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.writeElement("questions_categories", '');
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 function createMoodleBackupXML(path) {
     let ws = createFileWriteStream(path, '/moodle_backup.xml');
-
-    xw = new XMLWriter(false, function (string, encoding) {
-        ws.write(string, encoding);
-    });
-    xw.startDocument('1.0', 'UTF-8')
+    let xw = createXMLWriter(ws);
+    xw.startDocument('1.0', 'UTF-8');
 
     xw.startElement("moodle_backup", '');
 
@@ -398,8 +358,7 @@ function createMoodleBackupXML(path) {
     xw.endElement(); //moodlebackup
 
     xw.endDocument();
-    console.log(xw.flush());
-    ws.end()
+    ws.end();
 }
 
 module.exports = {
