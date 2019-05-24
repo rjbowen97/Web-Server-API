@@ -5,6 +5,7 @@ var mbzBuilder = require('../public/javascripts/mbzBuilder');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+    console.log(req.query);
     mbzBuilder.buildMBZ();
     res.render('index', { title: 'Express' });
 });
