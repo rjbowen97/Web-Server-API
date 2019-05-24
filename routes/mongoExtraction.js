@@ -3,23 +3,37 @@ var router = express.Router();
 
 var mbzBuilder = require('../public/javascripts/mbzBuilder');
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    let mongoQuery = {};
-    console.log(req.query);
 
-    tagList = []
 
-    for (let currentTagKey in req.query) {
+function getORQuery(queryString) {
+    let orQuery = {};
 
-        console.log(currentTagKey)
-        console.log(req.query[currentTagKey]);
-
-        mongoQuery["module\\dxml.module.tags.tag.name"] = req.query[currentTagKey];
-
+    for (let currentTagKey in queryString) {
+        orQuery["module\\dxml.module.tags.tag.name"] = queryString[currentTagKey];
     }
 
-    console.log(mongoQuery);
+    return orQuery;
+}
+
+function getANDQuery(queryString) {
+    let mongoQuery = [];
+    
+    for (let currentTagKey in queryString) {
+        mongoQuery.push({"module\\dxml.module.tags.tag.name" : queryString[currentTagKey]})
+    }
+
+    let andQuery = {};
+    andQuery["$and"] = mongoQuery;
+
+    console.log(andQuery);
+
+    return andQuery;
+}
+
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    // let mongoQuery = getORQuery(req.query);
+    let mongoQuery = getANDQuery(req.query);
 
     mbzBuilder.buildMBZ(mongoQuery);
     res.render('index', { title: 'Express' });
