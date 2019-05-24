@@ -36,7 +36,7 @@ function generateMiscFiles(targetFile) {
 }
 
 
-var buildMBZ = function () {
+var buildMBZ = function (mongoQuery) {
     let sshCredentialPromptConfiguration = {
         properties: {
             sshUsername: {
@@ -76,8 +76,10 @@ var buildMBZ = function () {
 
                 let questionsUsingXml2jsCollection = client.db('autoexam').collection('questionsUsingXml2js');
 
-                questionsUsingXml2jsCollection.find({}).toArray(function (err, fetchedQuestions) {
+                questionsUsingXml2jsCollection.find(mongoQuery).toArray(function (err, fetchedQuestions) {
                     let desanitizedFetchedQuestions = mongoDesanitizer.desanitizeObject(fetchedQuestions)
+
+                    console.log(desanitizedFetchedQuestions);
 
                     // creating parent directory
                     let parentDir = "./MBZ"
