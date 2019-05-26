@@ -8,16 +8,8 @@ var fsTar = require('fs-extra');
 var targz = require('targz');
 
 var mongoDesanitizer = require('./mongoDesanitizer');
-
 var mbzBuilderXMLUtilities = require('./mbzBuilderXMLUtilities');
 
-
-function writeObjectToFile(object, targetFile) {
-    fs.writeFile(targetFile, JSON.stringify(object), (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
-}
 
 function writeXMLStringToFile(xmlString, targetFile) {
     fs.writeFile(targetFile, xmlString, (err) => {
