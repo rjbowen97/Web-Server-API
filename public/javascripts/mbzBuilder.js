@@ -26,16 +26,6 @@ function writeXMLStringToFile(xmlString, targetFile) {
     });
 }
 
-
-// for generating files we aren't pulling from the database
-function generateMiscFiles(targetFile) {
-    fs.writeFile(targeFile, '', (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
-}
-
-
 var buildMBZ = function (mongoQuery) {
     let sshCredentialPromptConfiguration = {
         properties: {
