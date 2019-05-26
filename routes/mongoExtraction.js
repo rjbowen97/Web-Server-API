@@ -3,8 +3,6 @@ var router = express.Router();
 
 var mbzBuilder = require('../public/javascripts/mbzBuilder');
 
-
-
 function getORQuery(queryString) {
     let orQuery = {};
 
