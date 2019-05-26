@@ -61,8 +61,6 @@ var buildMBZ = function (mongoQuery) {
                 questionsUsingXml2jsCollection.find(mongoQuery).toArray(function (err, fetchedQuestions) {
                     let desanitizedFetchedQuestions = mongoDesanitizer.desanitizeObject(fetchedQuestions)
 
-                    console.log(desanitizedFetchedQuestions);
-
                     // creating parent directory
                     let parentDir = "./MBZ"
                     if (!fs.existsSync(parentDir)) {
@@ -87,7 +85,6 @@ var buildMBZ = function (mongoQuery) {
                             if (currentKey.includes('.xml')) {
 
                                 let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
-                                console.log(currentMBZFileContents);
 
                                 let xml2jsBuilder = new xml2js.Builder({ "attrkey": "$" });
                                 let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
