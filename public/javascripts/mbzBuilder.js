@@ -85,9 +85,11 @@ var buildMBZ = function (mongoQuery) {
 
                         for (let currentKey of Object.keys(currentDesanitizedQuestion)) {
                             console.log(currentKey);
-                            if (currentKey.includes('.xml')) {
+                            if (currentKey.includes('\\dxml')) {
 
                                 let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
+                                console.log('currentMBZFileContents')
+                                console.log(currentMBZFileContents);
 
                                 let xml2jsBuilder = new xml2js.Builder({ "attrkey": "$" });
                                 let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
