@@ -87,6 +87,7 @@ var buildMBZ = function (mongoQuery) {
                             console.log(currentKey);
                             if (currentKey.includes('\\dxml')) {
 
+
                                 let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
                                 console.log('currentMBZFileContents')
                                 console.log(currentMBZFileContents);
@@ -94,7 +95,9 @@ var buildMBZ = function (mongoQuery) {
                                 let xml2jsBuilder = new xml2js.Builder({ "attrkey": "$" });
                                 let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
-                                writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + currentKey);
+                                let replacedKey = currentKey.replace('\\dxml','.xml');
+
+                                writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + replacedKey);
                                 mbzBuilderXMLUtilities.createGradeHistoryXML(activitiesDirectory);
                                 mbzBuilderXMLUtilities.createRolesXML(activitiesDirectory);
                             }
