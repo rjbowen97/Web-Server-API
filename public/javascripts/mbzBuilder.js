@@ -4,6 +4,8 @@ var fs = require('fs');
 var tunnel = require('tunnel-ssh');
 var prompt = require('prompt');
 
+var zipFolder = require('zip-folder');
+
 var fsTar = require('fs-extra');
 var targz = require('targz');
 
@@ -95,7 +97,7 @@ var buildMBZ = function (mongoQuery) {
                                 let xml2jsBuilder = new xml2js.Builder({ "attrkey": "$" });
                                 let currentMBZFileContentsAsXML = xml2jsBuilder.buildObject(currentMBZFileContents);
 
-                                let replacedKey = currentKey.replace('\\dxml','.xml');
+                                let replacedKey = currentKey.replace('\\dxml', '.xml');
 
                                 writeXMLStringToFile(currentMBZFileContentsAsXML, currentQuestionDirectory + '/' + replacedKey);
                                 mbzBuilderXMLUtilities.createGradeHistoryXML(activitiesDirectory);
@@ -144,13 +146,22 @@ var buildMBZ = function (mongoQuery) {
 
 
                 //compress files into tar.gz archive
-                targz.compress({
-                    src: './MBZ',
-                    dest: './MBZ.mbz'
-                }, function (err) {
+                // targz.compress({
+                //     src: './MBZ',
+                //     dest: './MBZ.mbz'
+                // }, function (err) {
+                //     if (err) {
+                //     } else {
+                //         console.log("Done!");
+                //     }
+                // });
+
+
+                zipFolder('./MBZ', './MBZ.mbz', function (err) {
                     if (err) {
+                        console.log('oh no!', err);
                     } else {
-                        console.log("Done!");
+                        console.log('EXCELLENT');
                     }
                 });
 
