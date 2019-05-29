@@ -72,6 +72,7 @@ var buildMBZ = function (mongoQuery) {
                         fs.mkdirSync(activitiesDirectory);
                     }
 
+                    console.log('TEST');
                     for (let currentIndex = 0; currentIndex < fetchedQuestions.length; currentIndex++) {
                         let currentQuestionDirectory = activitiesDirectory + "/DesanitizedQuestion" + currentIndex.toString();
 
@@ -80,8 +81,10 @@ var buildMBZ = function (mongoQuery) {
                         }
 
                         let currentDesanitizedQuestion = desanitizedFetchedQuestions[currentIndex];;
+                        console.log(currentDesanitizedQuestion);
 
                         for (let currentKey of Object.keys(currentDesanitizedQuestion)) {
+                            console.log(currentKey);
                             if (currentKey.includes('.xml')) {
 
                                 let currentMBZFileContents = currentDesanitizedQuestion[currentKey];
